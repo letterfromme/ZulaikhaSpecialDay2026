@@ -1,0 +1,2117 @@
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Sriracha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-pink: #ffe6f0;
+    --color-white: #fff;
+    --color-black: #333;
+    --color-text-pink: #ff7882;
+    --color-heart: #F61F1F;
+    --color-bg-letter: #fff8e4;
+    --color-border: #DACCBF;
+    --color-gold: #ffd700;
+    --color-rose: #ff69b4;
+    --color-lavender: #e6e6fa;
+}
+
+html {
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(255, 105, 180, 0.2);
+}
+
+body {
+    position: relative;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: url('background.jpg') no-repeat center center/cover;
+    background-attachment: fixed;
+    font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    line-height: 1.6;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+}
+
+/* Blur overlay background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    backdrop-filter: blur(10px);
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+}
+
+/* Start Overlay */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff9ecb, #ff5ca0, #ff1493);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+.overlay-content {
+    position: relative;
+    text-align: center;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkle 2s infinite;
+}
+
+.sparkle:nth-child(1) {
+    top: -20px;
+    left: -30px;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+    top: -10px;
+    right: -20px;
+    animation-delay: 0.5s;
+}
+
+.sparkle:nth-child(3) {
+    bottom: -15px;
+    left: 20px;
+    animation-delay: 1s;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+#start-btn {
+    padding: 20px 50px;
+    font-size: 24px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff4081, #ff9100, #ff69b4);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 30px rgba(255, 64, 129, 0.8);
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+#start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+#start-btn:hover::before {
+    left: 100%;
+}
+
+#start-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 64, 129, 1);
+}
+
+/* iPad start button */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    #start-btn {
+        padding: 22px 48px;
+        font-size: 22px;
+        border-radius: 22px;
+    }
+}
+
+#start-btn i {
+    margin: 0 10px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Main Wrapper */
+.flowers-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    transition: opacity 1s ease;
+}
+
+/* Floating Hearts Background */
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle at 30% 30%, #ff9ecb, #ff5ca0 60%);
+    transform: rotate(45deg);
+    animation: floatUp linear forwards;
+    opacity: 0.8;
+}
+
+.heart:before, .heart:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.heart:before { left: -6px; top: 0; }
+.heart:after { top: -6px; left: 0; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(45deg) scale(0.8); opacity: 0; }
+    10% { opacity: 0.9; }
+    100% { transform: translateY(-120vh) rotate(45deg) scale(1.2); opacity: 0; }
+}
+
+/* Main Card */
+.card {
+    position: relative;
+    z-index: 1;
+    padding: 50px 40px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+    text-align: center;
+    overflow: visible;
+    margin: 20px auto;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255,182,193,0.1), rgba(255,192,203,0.1));
+    z-index: -1;
+}
+
+/* Birthday Flags */
+.flag__birthday {
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-150px);
+    animation: translateYFlag 0.8s 0.3s forwards;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+@keyframes translateYFlag {
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+.flag__birthday .flag__left {
+    transform: rotate(-15deg) translate(-30px, 20px);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+.flag__birthday .flag__right {
+    transform: rotate(15deg) translate(30px, 20px) scaleX(-1);
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+/* Content Layout */
+.content {
+    width: 100%;
+    position: relative;
+    display: flex;
+    padding-top: 2.5rem;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* iPad specific content adjustments */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .content {
+        flex-direction: row;
+        gap: 35px;
+        padding-top: 2rem;
+    }
+
+    .content .left {
+        width: 48%;
+        padding-left: 15px;
+    }
+
+    .content .right {
+        width: 52%;
+    }
+}
+
+.content .left, .content .right {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content .left {
+    width: 45%;
+    padding-left: 20px;
+}
+
+.content .right {
+    width: 55%;
+}
+
+/* Title Styling */
+.title {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: "Titan One", sans-serif;
+    font-size: 2.5rem;
+    flex-direction: column;
+    perspective: 1000px;
+    margin-bottom: 20px;
+}
+
+.title .happy, .title .birthday {
+    position: relative;
+    text-shadow: 2px 2px 0 var(--color-black),
+                3px 3px 0 var(--color-black), 
+                -2px 2px 0 var(--color-black), 
+                2px -2px 0 var(--color-black), 
+                -2px -2px 0 var(--color-black),
+                0 4px 8px rgba(0,0,0,0.3);
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin: 8px 0;
+    letter-spacing: 2px;
+}
+
+.title .happy {
+    color: var(--color-white);
+}
+
+.title .birthday {
+    color: var(--color-text-pink);
+}
+
+.title .happy span, .title .birthday span {
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+    animation: txtTranslateY 0.4s var(--t) forwards;
+}
+
+@keyframes txtTranslateY {
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.title .hat {
+    position: absolute;
+    right: 30px;
+    top: -200px;
+    transform: rotate(-40deg);
+    z-index: -1;
+    animation: topHat 1.2s 0.8s forwards ease;
+}
+
+@keyframes topHat {
+    20%, 30% {
+        top: -20px;
+        transform-origin: left;
+        transform: rotate(-40deg);
+    }
+    35%, 100% {
+        top: -20px;
+        transform: rotate(0deg);
+    }
+}
+
+/* Date of Birth */
+.date__of__birth {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(45deg, var(--color-text-pink), var(--color-rose));
+    border-radius: 50px;
+    margin: 20px 0;
+    font-family: "Sriracha", cursive;
+    border: 3px solid var(--color-black);
+    position: relative;
+    transform: translateY(-100px);
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    width: 0px;
+    animation: dateOfBirth 1.5s 1.2s forwards;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes dateOfBirth {
+    20%, 40% {
+        width: 0px;
+        height: 0;
+        transform: translateY(0px);
+        opacity: 1;
+        visibility: visible;
+    }
+    45% {
+        transform: translateY(0px);
+        opacity: 1;
+        visibility: visible;
+        width: 280px;
+        height: 0px;
+    }
+    50%, 100% {
+        transform: translateY(0px);
+        opacity: 1;
+        visibility: visible;
+        width: 280px;
+        height: 50px;
+    }
+}
+
+.date__of__birth span {
+    font-weight: bold;
+    margin: 0px 30px;
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6),
+                 0 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+    padding: 5px 0;
+}
+
+/* Button Styling */
+.left .btn {
+    transform: scale(0);
+    animation: scaleCricle 1s 1.8s forwards ease-in-out;
+}
+
+#btn__letter {
+    position: relative;
+    margin-top: 25px;
+    background: linear-gradient(45deg, var(--color-text-pink), var(--color-rose));
+    outline: none;
+    padding: 15px 35px;
+    font-size: 1.15rem;
+    border-radius: 50px;
+    border: 3px solid var(--color-black);
+    font-family: "Sriracha", cursive;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transform: scale(1);
+    transition: all 0.3s ease-in-out;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6),
+                 0 2px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+    letter-spacing: 0.5px;
+    gap: 10px;
+}
+
+#btn__letter:active {
+    transform: scale(0.9);
+}
+
+#btn__letter i {
+    margin: 0 8px;
+    animation: pulse 2s infinite;
+}
+
+#btn__letter:hover {
+    border-color: var(--color-heart);
+    background: linear-gradient(45deg, var(--color-heart), #ff1493);
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(246, 31, 31, 0.4);
+    transform: translateY(-2px);
+}
+
+#btn__letter:hover i {
+    animation: rotateHeart 1s infinite linear;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes rotateHeart {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(12deg);
+    }
+    75% {
+        transform: rotate(-12deg);
+    }
+}
+
+/* Right Side - Image and Decorations */
+.right .box__account {
+    position: relative;
+    transform: translateY(500px);
+    animation: topBoxImage 1.5s 0.5s forwards ease-in;
+}
+
+@keyframes topBoxImage {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.content .right .image {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    border: 6px solid var(--color-black);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    margin: 0 auto;
+}
+
+.content .right .image:hover {
+    transform: scale(1.05);
+}
+
+.content .right .image img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.name {
+    position: absolute;
+    padding: 8px 30px;
+    bottom: -15px;
+    border: 3px solid var(--color-black);
+    background: linear-gradient(45deg, var(--color-text-pink), var(--color-rose));
+    border-radius: 50px;
+    font-family: "Sriracha", cursive;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.name span {
+    font-weight: bold;
+    margin: 0px 20px;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6),
+                 0 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+}
+
+.fa-heart {
+    color: var(--color-heart);
+    filter: drop-shadow(0 0 3px var(--color-heart));
+    animation: scaleHeart 1.5s infinite linear;
+}
+
+@keyframes scaleHeart {
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Rotating Circle */
+.cricle {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);
+    animation: scaleCricle 1s 2s forwards ease-in-out;
+}
+
+@keyframes scaleCricle {
+    0% {
+        transform: scale(0);
+    }
+    10% {
+        transform: scale(1.3);
+    }
+    20% {
+        transform: scale(0.7);
+    }
+    30%, 100% {
+        transform: scale(1);
+    }
+}
+
+.text__cricle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, var(--color-text-pink), var(--color-rose));
+    border-radius: 50%;
+    border: 4px solid var(--color-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotateCricle 6s linear infinite;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes rotateCricle {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.text__cricle span {
+    top: 0%;
+    left: 50%;
+    position: absolute;
+    color: white;
+    transform: rotate(calc(var(--i) * 24deg));
+    transform-origin: 0 35px;
+    font-family: "Sriracha", cursive;
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.cricle .fa-heart {
+    position: absolute;
+    transform: scale(0.8);
+}
+
+/* Balloons */
+.right .balloon_one {
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    animation: balloon1 3s infinite linear;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+@keyframes balloon1 {
+    0%, 50%, 100% {
+        transform-origin: bottom right;
+        transform: rotate(0deg);
+    }
+    25% {
+        transform-origin: bottom right;
+        transform: rotate(5deg);
+    }
+    75% {
+        transform-origin: bottom right;
+        transform: rotate(-5deg);
+    }
+}
+
+.right .balloon_two {
+    position: absolute;
+    top: 120px;
+    right: -50px;
+    z-index: -1;
+    transform: rotate(10deg);
+    animation: balloon2 3s infinite linear;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+@keyframes balloon2 {
+    0%, 50%, 100% {
+        transform-origin: bottom left;
+        transform: rotate(10deg);
+    }
+    25% {
+        transform-origin: bottom left;
+        transform: rotate(7deg);
+    }
+    75% {
+        transform-origin: bottom left;
+        transform: rotate(13deg);
+    }
+}
+
+/* Decorative Stars */
+.decorate_star {
+    position: absolute;
+    transform: scale(0);
+    background: linear-gradient(45deg, var(--color-gold), #ffd700);
+    clip-path: polygon(0 50%, 35% 35%, 50% 0, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%);
+    animation: scaleCricle 1s var(--t) forwards, 
+            scaleStar 2s 2.5s infinite ease-in-out;
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
+}
+
+.decorate_star.star1 {
+    width: 18px;
+    height: 18px;
+    top: 60px;
+    left: 200px;
+}
+
+.decorate_star.star2 {
+    width: 14px;
+    height: 18px;
+    top: 30px;
+    right: 250px;
+}
+
+.decorate_star.star3 {
+    width: 16px;
+    height: 16px;
+    top: 200px;
+    left: 500px;
+}
+
+.decorate_star.star4 {
+    width: 20px;
+    height: 20px;
+    bottom: 50px;
+    left: 30px;
+}
+
+.decorate_star.star5 {
+    width: 16px;
+    height: 18px;
+    bottom: 120px;
+    left: 400px;
+}
+
+@keyframes scaleStar {
+    25% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+/* Decorative Flowers */
+.decorate_flower--one {
+    position: absolute;
+    top: 180px;
+    left: 40px;
+    transform: scale(0);
+    animation: scaleCricle 1s var(--t) forwards ease-in-out;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
+}
+
+.decorate_flower--two {
+    position: absolute;
+    top: 160px;
+    left: 450px;
+    transform: scale(0);
+    animation: scaleCricle 1s var(--t) forwards ease-in-out;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
+}
+
+.decorate_flower--three {
+    position: absolute;
+    top: 100px;
+    right: 180px;
+    transform: scale(0);
+    animation: scaleCricle 1s var(--t) forwards ease-in-out;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.2));
+}
+
+.decorate_bottom {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+/* Responsive Cake Styling - Base rule for default/desktop */
+.decorate_bottom img {
+    width: clamp(60px, 8vw, 150px);
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+/* Very large screens - biggest cake */
+@media screen and (min-width: 1200px) {
+    .decorate_bottom img {
+        width: 150px !important;
+    }
+}
+
+/* Large desktop screens */
+@media screen and (min-width: 1025px) and (max-width: 1199px) {
+    .decorate_bottom img {
+        width: 130px !important;
+    }
+}
+
+.smiley__icon {
+    position: absolute;
+    bottom: 150px;
+    left: 500px;
+    transform: scale(0);
+    animation: scaleCricle 1s 2s forwards ease-in-out;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+}
+
+/* Letter Box */
+.box__letter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    display: none;
+    backdrop-filter: blur(5px);
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    pointer-events: auto;
+}
+
+.box__letter .letter__border {
+    position: fixed;
+    width: 85vw;
+    height: auto;
+    min-height: 200px;
+    max-width: 85vw;
+    max-height: 90vh;
+    background: linear-gradient(135deg, 
+        rgba(255,248,240,0.98) 0%, 
+        rgba(255,250,245,0.98) 50%,
+        rgba(255,240,245,0.98) 100%);
+    border-radius: 35px;
+    padding: min(4vh, 50px) min(4vw, 45px);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4),
+                0 10px 30px rgba(255,105,180,0.2),
+                inset 0 2px 10px rgba(255,255,255,0.9),
+                inset 0 -2px 10px rgba(255,192,203,0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    border: 4px solid rgba(255,182,193,0.6);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    pointer-events: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.box__letter .letter__border .letter {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.box__letter .letter__border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,182,193,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255,192,203,0.15) 0%, transparent 50%);
+    border-radius: 35px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Removed conflicting overflow rule - letter__border now uses overflow-y: auto */
+
+.box__letter .letter__border::-webkit-scrollbar {
+    width: 8px;
+}
+
+.box__letter .letter__border::-webkit-scrollbar-track {
+    background: rgba(255,192,203,0.15);
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.box__letter .letter__border::-webkit-scrollbar-thumb {
+    background: rgba(255,105,180,0.6);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.box__letter .letter__border::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,105,180,0.8);
+}
+
+@media screen and (max-width: 768px) {
+    .box__letter .letter__border::-webkit-scrollbar {
+        width: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .box__letter .letter__border::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+.letter__border .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, var(--color-heart), #ff1493);
+    border-radius: 50%;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3),
+                0 0 10px rgba(255, 20, 147, 0.5);
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+    z-index: 10000;
+    pointer-events: auto;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.letter__border .close:hover {
+    transform: scale(1.15);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4),
+                0 0 15px rgba(255, 20, 147, 0.7);
+}
+
+.letter__border .close:active {
+    transform: scale(1.05);
+}
+
+.back-button {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b9d, #ff4081, #ff1493);
+    border-radius: 25px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4),
+                0 0 15px rgba(255, 105, 180, 0.3),
+                inset 0 1px 3px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 18px;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    gap: 8px;
+    z-index: 10000;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.back-button:hover {
+    transform: scale(1.1) translateY(-2px);
+    background: linear-gradient(135deg, #ff4081, #ff1493, #ff0066);
+    box-shadow: 0 8px 25px rgba(255, 64, 129, 0.6),
+                0 0 20px rgba(255, 105, 180, 0.5),
+                inset 0 1px 5px rgba(255, 255, 255, 0.4);
+}
+
+.back-button:active {
+    transform: scale(1.05) translateY(0);
+}
+
+.back-button i {
+    margin: 0;
+    font-size: 14px;
+    animation: none;
+}
+
+.close-button {
+    z-index: 10000;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.letter__border .letter {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    background: linear-gradient(135deg, 
+        rgba(255,255,255,0.95) 0%, 
+        rgba(255,248,240,0.95) 100%);
+    border-radius: 20px;
+    padding: 30px 35px;
+    position: relative;
+    overflow: visible;
+    box-shadow: inset 0 2px 15px rgba(255,192,203,0.1),
+                inset 0 -2px 15px rgba(255,182,193,0.1);
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.letter__border .letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-rose), transparent);
+}
+
+.letter__border .letter .title__letter {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    font-size: 3rem;
+    color: var(--color-heart);
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 3px dashed rgba(255,105,180,0.3);
+    text-shadow: 2px 2px 4px rgba(255,192,203,0.5),
+                 0 0 10px rgba(255,105,180,0.3);
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+.letter__border .letter .title__letter::before,
+.letter__border .letter .title__letter::after {
+    content: '💕';
+    position: absolute;
+    font-size: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.letter__border .letter .title__letter::before {
+    left: 10%;
+}
+
+.letter__border .letter .title__letter::after {
+    right: 10%;
+}
+
+.title__letter .fa-solid {
+    margin-left: 8px;
+    font-size: 1.2rem;
+    color: var(--color-heart);
+    animation: heartbeat 1.5s infinite;
+}
+
+.letter__border .letter .content__letter {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: calc(100% - 100px);
+    max-height: none;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    overflow-y: visible;
+    overflow-x: hidden;
+    gap: 25px;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.letter__border .letter .content__letter .left {
+    position: relative;
+    width: 30%;
+    height: 100%;
+    padding: 25px;
+    border-right: 3px dashed rgba(255,182,193,0.5);
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(255,240,245,0.3) 50%,
+        transparent 100%);
+    border-radius: 15px 0 0 15px;
+    box-sizing: border-box;
+}
+
+.content__letter .left #heart__letter {
+    opacity: 0;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(255,105,180,0.3),
+                inset 0 2px 5px rgba(255,255,255,0.5);
+    border: 2px solid rgba(255,182,193,0.4);
+}
+
+#heart__letter.animationOp {
+    animation: opacityHeart 1s 1s forwards;
+}
+
+@keyframes opacityHeart {
+    to {
+        opacity: 1;
+    }
+}
+
+.content__letter .left .heart {
+    position: absolute;
+    opacity: 0;
+}
+
+.content__letter .left .heart.animation {
+    animation: scaleHeartLetter 1s var(--t) infinite ease-in-out;
+}
+
+@keyframes scaleHeartLetter {
+    0% {
+        opacity: 1;
+        transform: scale(0);
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1.3);
+    }
+    20% {
+        opacity: 1;
+        transform: scale(0.7);
+    }
+    30%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.content__letter .left .heart_1 {
+    top: 80px;
+    left: 25px;
+}
+
+.content__letter .left .heart_2 {
+    top: 15px;
+    right: 60px;
+}
+
+.content__letter .left .heart_3 {
+    bottom: 40px;
+    left: 120px;
+}
+
+.content__letter .left .heart_4 {
+    top: 120px;
+    right: 30px;
+}
+
+.content__letter .right {
+    position: relative;
+    width: 70%;
+    padding: 30px;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        rgba(255,250,250,0.3) 50%,
+        transparent 100%);
+    border-radius: 0 15px 15px 0;
+    box-sizing: border-box;
+}
+
+.content__letter .right .love__img {
+    opacity: 0;
+    position: absolute;
+    right: 15px;
+    top: -80px;
+}
+
+.love__img.animationOp {
+    animation: opacityHeart 1s 1s forwards;
+}
+
+.content__letter .right .text__letter {
+    /* Typography - Responsive Base Styles */
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 400;
+    line-height: 2;
+    color: #2d2d2d;
+    text-align: left;
+    
+    /* Text Wrapping & Overflow Handling */
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    
+    /* Spacing - Responsive Padding */
+    margin-top: 20px;
+    padding: clamp(28px, 4vw, 40px) clamp(25px, 4vw, 50px);
+    letter-spacing: 0.3px;
+    word-spacing: 1.5px;
+    
+    /* Layout & Dimensions */
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: auto;
+    max-height: none;
+    box-sizing: border-box;
+    
+    /* Overflow Handling */
+    overflow: visible;
+    overflow-x: hidden;
+    
+    /* Visual Design - Responsive Border Radius */
+    background: linear-gradient(135deg, 
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,250,250,0.98) 100%);
+    border-radius: clamp(18px, 2vw, 25px);
+    border: 2px solid rgba(255,182,193,0.4);
+    box-shadow: 0 8px 30px rgba(255,105,180,0.2),
+                inset 0 2px 5px rgba(255,255,255,0.9),
+                inset 0 -2px 5px rgba(255,192,203,0.2);
+    
+    /* Readability Enhancements */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    /* Contrast & Visibility */
+    text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+    
+    /* High DPI Display Support */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    
+    /* Selection Styling */
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+}
+
+/* Text Selection Styling */
+.content__letter .right .text__letter::selection {
+    background: rgba(255,105,180,0.3);
+    color: #2d2d2d;
+}
+
+.content__letter .right .text__letter::-moz-selection {
+    background: rgba(255,105,180,0.3);
+    color: #2d2d2d;
+}
+
+.content__letter .right .text__letter p,
+.content__letter .right .text__letter #message {
+    /* Reset margins and padding */
+    margin: 0;
+    padding: 0;
+    
+    /* Text handling */
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    
+    /* Layout */
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    
+    /* Typography inheritance */
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    
+    /* Readability */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.content__letter .right .text__letter::before {
+    content: '✨';
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: sparkle 2s infinite;
+}
+
+.content__letter .right .text__letter::after {
+    content: '💖';
+    position: absolute;
+    bottom: -15px;
+    right: 20px;
+    font-size: 1.5rem;
+    opacity: 0.6;
+    animation: sparkle 2s infinite 1s;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+/* Scrollbar Styling - Responsive */
+.content__letter .right .text__letter::-webkit-scrollbar {
+    width: clamp(6px, 1vw, 8px);
+}
+
+.content__letter .right .text__letter::-webkit-scrollbar-track {
+    background: rgba(255,192,203,0.15);
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.content__letter .right .text__letter::-webkit-scrollbar-thumb {
+    background: rgba(255,105,180,0.5);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: background 0.3s ease;
+}
+
+.content__letter .right .text__letter::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,105,180,0.7);
+}
+
+/* Firefox scrollbar support */
+.content__letter .right .text__letter {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,105,180,0.5) rgba(255,192,203,0.15);
+}
+
+.content__letter .right #mewmew {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0;
+}
+
+#mewmew.animationOp {
+    animation: opacityHeart 1s 1s forwards;
+}
+
+/* Responsive Design */
+/* iPad and Tablet (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+
+    .flowers-wrapper {
+        padding: 30px 25px;
+    }
+
+    .card {
+        padding: 45px 35px;
+        width: 88%;
+        max-width: 850px;
+        border-radius: 28px;
+        margin: 20px auto;
+    }
+
+    .content {
+        gap: 35px;
+        padding-top: 2rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content .left, .content .right {
+        width: 100%;
+        padding: 0;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    .title .happy, .title .birthday {
+        font-size: 2rem;
+        margin: 6px 0;
+        letter-spacing: 2px;
+    }
+
+    .content .right .image {
+        width: 250px;
+        height: 250px;
+        border-width: 6px;
+    }
+
+    .name {
+        padding: 8px 25px;
+        bottom: -15px;
+    }
+
+    .name span {
+        font-size: 1.3rem;
+        margin: 0px 18px;
+        letter-spacing: 2px;
+    }
+
+    #btn__letter {
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        margin-top: 25px;
+    }
+
+    .date__of__birth {
+        margin: 18px 0;
+    }
+
+    .date__of__birth span {
+        font-size: 1.1rem;
+        margin: 0px 25px;
+        padding: 10px 0;
+    }
+
+    .box__letter .letter__border {
+        width: 88vw;
+        height: auto;
+        min-height: 250px;
+        max-width: 850px;
+        max-height: 85vh;
+        padding: min(3.5vh, 40px) min(3.5vw, 35px);
+        border-radius: 30px;
+    }
+
+    .letter__border .letter {
+        padding: 25px 30px;
+    }
+
+    .letter__border .letter .title__letter {
+        font-size: 2.5rem;
+        padding: 18px 0;
+        margin-bottom: 25px;
+    }
+
+    .content__letter .right .text__letter {
+        font-size: clamp(1rem, 2.5vw, 1.05rem);
+        line-height: 2.1;
+        padding: clamp(28px, 3.5vw, 32px) clamp(25px, 3.5vw, 28px);
+        letter-spacing: 0.35px;
+        word-spacing: 1.8px;
+        border-radius: clamp(20px, 2.5vw, 22px);
+        border-width: 2px;
+    }
+
+    .flag__birthday .flag__left,
+    .flag__birthday .flag__right {
+        width: 160px !important;
+    }
+
+    .flag__birthday {
+        margin-bottom: 25px;
+    }
+
+    .cricle {
+        top: 25px;
+        right: 25px;
+    }
+
+    .text__cricle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .text__cricle span {
+        font-size: 0.55rem;
+        transform-origin: 0 30px;
+    }
+
+    .decorate_star.star1,
+    .decorate_star.star2,
+    .decorate_star.star3,
+    .decorate_star.star4,
+    .decorate_star.star5 {
+        width: 16px;
+        height: 16px;
+    }
+
+    .decorate_flower--one,
+    .decorate_flower--two,
+    .decorate_flower--three {
+        width: 22px;
+    }
+
+    .decorate_flower--one img,
+    .decorate_flower--two img,
+    .decorate_flower--three img {
+        width: 22px !important;
+    }
+
+    .decorate_bottom img {
+        width: 90px !important;
+    }
+    
+    .smiley__icon img {
+        width: 70px !important;
+    }
+
+    .balloon_one img,
+    .balloon_two img {
+        width: 70px !important;
+    }
+
+    .title .hat img {
+        width: 90px !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .box__letter .letter__border {
+        width: 85vw;
+        height: auto;
+        min-height: 200px;
+        max-width: 800px;
+        max-height: 75vh;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    * {
+        -webkit-tap-highlight-color: rgba(255, 105, 180, 0.2);
+    }
+
+    .flowers-wrapper {
+        padding: 20px 15px;
+    }
+
+    #start-btn {
+        min-height: 50px;
+        touch-action: manipulation;
+    }
+
+    #btn__letter {
+        min-height: 48px;
+        touch-action: manipulation;
+    }
+
+    .content {
+        flex-direction: column;
+        gap: 25px;
+        padding-top: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content .left, .content .right {
+        width: 100%;
+        padding: 0;
+        align-items: center;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .title .happy, .title .birthday {
+        font-size: 1.8rem;
+        margin: 5px 0;
+        letter-spacing: 1.5px;
+    }
+
+    .content .right .image {
+        width: 220px;
+        height: 220px;
+        border-width: 5px;
+    }
+
+    .card {
+        padding: 35px 25px;
+        width: 95%;
+        max-width: 100%;
+        border-radius: 25px;
+        margin: 20px auto;
+    }
+
+    #btn__letter {
+        padding: 14px 28px;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    .date__of__birth {
+        margin: 15px 0;
+    }
+
+    .date__of__birth span {
+        font-size: 1rem;
+        margin: 0px 20px;
+        padding: 8px 0;
+    }
+
+    .box__letter .letter__border {
+        width: 92vw;
+        height: auto;
+        min-height: 200px;
+        max-width: 92vw;
+        max-height: 88vh;
+        padding: min(2.5vh, 20px) min(2.5vw, 18px);
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-overflow-scrolling: touch;
+        border-radius: 25px;
+    }
+
+    .box__letter .letter__border .letter {
+        overflow: visible;
+        padding: 20px 18px;
+        min-height: auto;
+    }
+
+    .letter__border .letter .title__letter {
+        font-size: 2rem;
+        padding: 15px 0;
+    }
+    
+    .letter__border .letter .title__letter::before,
+    .letter__border .letter .title__letter::after {
+        font-size: 1.2rem;
+    }
+    
+    .letter__border .letter .title__letter::before {
+        left: 5%;
+    }
+    
+    .letter__border .letter .title__letter::after {
+        right: 5%;
+    }
+
+    .letter__border .letter .content__letter {
+        flex-direction: column;
+        height: auto;
+        min-height: auto;
+        max-height: none;
+        gap: 18px;
+        overflow: visible;
+        padding-top: 15px;
+        padding-bottom: 20px;
+    }
+
+    .letter__border .letter .content__letter .left {
+        width: 100% !important;
+        height: auto;
+        padding: 18px 15px;
+        border-right: none;
+        border-bottom: 3px dashed rgba(255,182,193,0.5);
+        margin-bottom: 15px;
+        border-radius: 15px 15px 0 0;
+        background: linear-gradient(180deg, 
+            rgba(255,240,245,0.3) 0%,
+            transparent 100%);
+        box-sizing: border-box;
+    }
+
+    .content__letter .left #heart__letter {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .letter__border .letter .content__letter .right {
+        width: 100% !important;
+        padding: 20px 18px;
+        box-sizing: border-box;
+    }
+
+    .content__letter .right .love__img {
+        position: relative;
+        right: auto;
+        top: auto;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .content__letter .right .love__img img {
+        width: 120px;
+        height: auto;
+    }
+
+    .content__letter .right .text__letter {
+        font-size: clamp(0.95rem, 2.2vw, 1rem);
+        line-height: 2.2;
+        margin-top: 15px;
+        max-height: none;
+        height: auto;
+        min-height: auto;
+        overflow: visible;
+        padding: clamp(25px, 3vw, 28px) clamp(20px, 3vw, 22px);
+        background: linear-gradient(135deg, 
+            rgba(255,255,255,0.98) 0%,
+            rgba(255,250,250,0.98) 100%);
+        border-radius: clamp(16px, 2vw, 18px);
+        border: 2px solid rgba(255,182,193,0.4);
+        box-shadow: 0 8px 30px rgba(255,105,180,0.2),
+                    inset 0 2px 5px rgba(255,255,255,0.9),
+                    inset 0 -2px 5px rgba(255,192,203,0.2);
+        font-weight: 400;
+        letter-spacing: 0.35px;
+        color: #2d2d2d;
+        word-spacing: 2px;
+        width: 100%;
+        box-sizing: border-box;
+        white-space: pre-line;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-x: hidden;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    .content__letter .right .text__letter::before,
+    .content__letter .right .text__letter::after {
+        display: none;
+    }
+    
+    .letter__border .close {
+        right: 8px;
+        top: 8px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4),
+                    0 0 8px rgba(255, 20, 147, 0.6);
+    }
+
+    .back-button {
+        left: 8px;
+        top: 8px;
+        height: 44px;
+        font-size: 13px;
+        padding: 0 16px;
+        border-radius: 22px;
+    }
+    
+    .back-button i {
+        font-size: 13px;
+        margin: 0;
+    }
+
+    .flag__birthday .flag__left {
+        transform: rotate(-15deg) translate(-40px, 10px);
+        width: 140px !important;
+    }
+
+    .flag__birthday .flag__right {
+        transform: rotate(15deg) translate(40px, 10px) scaleX(-1);
+        width: 140px !important;
+    }
+
+    .cricle {
+        top: 15px;
+        right: 15px;
+    }
+
+    .text__cricle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .text__cricle span {
+        font-size: 0.5rem;
+        transform-origin: 0 25px;
+    }
+
+    .decorate_star.star1,
+    .decorate_star.star2,
+    .decorate_star.star3,
+    .decorate_star.star4,
+    .decorate_star.star5 {
+        width: 12px;
+        height: 12px;
+    }
+
+    .decorate_flower--one,
+    .decorate_flower--two,
+    .decorate_flower--three {
+        width: 20px;
+    }
+
+    .decorate_flower--one img,
+    .decorate_flower--two img,
+    .decorate_flower--three img {
+        width: 20px !important;
+    }
+
+    .decorate_bottom img {
+        width: 70px !important;
+    }
+    
+    .smiley__icon img {
+        width: 60px !important;
+    }
+
+    .balloon_one img,
+    .balloon_two img {
+        width: 60px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 13px;
+    }
+
+    * {
+        -webkit-tap-highlight-color: rgba(255, 105, 180, 0.2);
+    }
+
+    .flowers-wrapper {
+        padding: 15px 10px;
+    }
+
+    #start-btn {
+        min-height: 48px;
+        touch-action: manipulation;
+        padding: 14px 24px;
+    }
+
+    #btn__letter {
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    .letter__border .close,
+    .back-button {
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation;
+    }
+
+    .title {
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+    }
+
+    .title .happy, .title .birthday {
+        font-size: 1.4rem;
+        margin: 4px 0;
+        letter-spacing: 1px;
+    }
+
+    .content {
+        gap: 20px;
+        padding-top: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content .left, .content .right {
+        align-items: center;
+        text-align: center;
+    }
+
+    .content .right .image {
+        width: 200px;
+        height: 200px;
+        border-width: 4px;
+    }
+
+    .card {
+        padding: 25px 18px;
+        width: 98%;
+        border-radius: 20px;
+        margin: 20px auto;
+    }
+
+    #start-btn {
+        padding: 16px 28px;
+        font-size: 16px;
+        border-radius: 18px;
+    }
+
+    #btn__letter {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        margin-top: 15px;
+        border-radius: 45px;
+    }
+
+    .date__of__birth {
+        margin: 12px 0;
+        border-radius: 45px;
+    }
+
+    .date__of__birth span {
+        font-size: 0.9rem;
+        margin: 0px 15px;
+        padding: 6px 0;
+    }
+
+    .name {
+        padding: 5px 18px;
+        bottom: -12px;
+    }
+
+    .name span {
+        font-size: 1rem;
+        margin: 0px 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .flag__birthday {
+        margin-bottom: 15px;
+    }
+
+    .flag__birthday .flag__left,
+    .flag__birthday .flag__right {
+        width: 120px !important;
+    }
+
+    .box__letter .letter__border {
+        width: 95vw;
+        height: auto;
+        min-height: 200px;
+        max-width: 95vw;
+        max-height: 90vh;
+        padding: min(2vh, 15px) min(2vw, 12px);
+        box-sizing: border-box;
+        overflow-y: auto;
+        overflow-x: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 20px;
+        border-width: 3px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .box__letter .letter__border .letter {
+        overflow: visible;
+        padding: 18px 15px;
+        min-height: auto;
+    }
+
+    .letter__border .letter .title__letter {
+        font-size: 1.7rem;
+        padding: 15px 0;
+        margin-bottom: 25px;
+    }
+    
+    .letter__border .letter .title__letter::before,
+    .letter__border .letter .title__letter::after {
+        font-size: 1rem;
+    }
+    
+    .letter__border .letter .title__letter::before {
+        left: 2%;
+    }
+    
+    .letter__border .letter .title__letter::after {
+        right: 2%;
+    }
+
+    .letter__border .letter .content__letter .left {
+        padding: 15px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .content__letter .left #heart__letter {
+        max-width: 150px;
+        border-radius: 12px;
+    }
+
+    .letter__border .letter {
+        padding: 18px 15px;
+        border-radius: 15px;
+    }
+
+    .letter__border .letter .content__letter {
+        padding-top: 18px;
+        padding-bottom: 25px;
+        gap: 18px;
+    }
+
+    .letter__border .letter .content__letter .right {
+        padding: 20px 18px;
+        width: 100% !important;
+        box-sizing: border-box;
+        overflow: visible;
+    }
+
+    .content__letter .right #mewmew {
+        width: 45px !important;
+        bottom: 8px;
+        right: 8px;
+    }
+
+    .content__letter .right .love__img img {
+        width: 100px;
+    }
+    
+    .content__letter .right .text__letter {
+        font-size: clamp(0.9rem, 2vw, 0.95rem);
+        line-height: 2.3;
+        padding: clamp(22px, 2.8vw, 25px) clamp(18px, 2.8vw, 20px);
+        background: linear-gradient(135deg, 
+            rgba(255,255,255,0.98) 0%,
+            rgba(255,250,250,0.98) 100%);
+        border-radius: clamp(14px, 1.8vw, 16px);
+        border: 2px solid rgba(255,182,193,0.4);
+        box-shadow: 0 8px 30px rgba(255,105,180,0.2),
+                    inset 0 2px 5px rgba(255,255,255,0.9),
+                    inset 0 -2px 5px rgba(255,192,203,0.2);
+        font-weight: 400;
+        color: #2d2d2d;
+        max-height: none;
+        height: auto;
+        letter-spacing: 0.4px;
+        word-spacing: 2.5px;
+        min-height: auto;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top: 15px;
+        white-space: pre-line;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow: visible;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .content__letter .right .text__letter::before,
+    .content__letter .right .text__letter::after {
+        display: none;
+    }
+    
+    .letter__border .close {
+        right: 6px;
+        top: 6px;
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.4),
+                    0 0 8px rgba(255, 20, 147, 0.6);
+    }
+
+    .back-button {
+        left: 6px;
+        top: 6px;
+        height: 44px;
+        font-size: 12px;
+        padding: 0 14px;
+        border-radius: 20px;
+    }
+    
+    .back-button i {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .name {
+        padding: 4px 15px;
+        bottom: -8px;
+        font-size: 1rem;
+    }
+
+    .name span {
+        font-size: 1rem;
+        margin: 0px 10px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * { 
+        animation: none !important; 
+        transition: none !important; 
+    }
+    
+    .heart {
+        animation: none;
+    }
+}

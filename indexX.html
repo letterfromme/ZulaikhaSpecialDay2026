@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Happy Birthday Zulaikha | Sweet Birthday Website">
+  <title>Happy Birthday Zulaikha 💕</title>
+  <link rel="stylesheet" href="styleX.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+  <!-- ❤️ Enhanced Floating Heart Cursor Script - REMOVED -->
+  <script>
+  // Script disabled - hearts cursor effect removed
+  // All heart cursor code has been removed
+  </script>
+  <!-- Removed heart cursor script code -->
+  <!--
+  var shigh = 600;
+  var sleft = sdown = 0;
+  var herz = [];
+  var herzx = [];
+  var herzy = [];
+  var herzs = [];
+  var kiss = false;
+
+  if (typeof('addRVLoadEvent') != 'function') function addRVLoadEvent(funky) {
+    var oldonload = window.onload;
+    if (typeof(oldonload) != 'function') window.onload = funky;
+    else window.onload = function() {
+      if (oldonload) oldonload();
+      funky();
+    }
+  }
+
+  addRVLoadEvent(mwah);
+
+  function mwah() { if (document.getElementById) {
+    var i, heart;
+    for (i = 0; i < hearts; i++) {
+      heart = createDiv("auto", "auto");
+      heart.style.visibility = "hidden";
+      heart.style.zIndex = (over_or_under == "over") ? "1001" : "0";
+      heart.style.color = colours[i % colours.length];
+      heart.style.pointerEvents = "none";
+      heart.style.opacity = 0.8;
+      heart.appendChild(document.createTextNode(String.fromCharCode(9829)));
+      document.body.appendChild(heart);
+      herz[i] = heart;
+      herzy[i] = false;
+    }
+    set_scroll();
+    set_width();
+    herzle();
+  }}
+
+  function herzle() {
+    var c;
+    if (Math.abs(x - ox) > 1 || Math.abs(y - oy) > 1) {
+      ox = x;
+      oy = y;
+      for (c = 0; c < hearts; c++) if (herzy[c] === false) {
+        herz[c].firstChild.nodeValue = String.fromCharCode(9829);
+        herz[c].style.left = (herzx[c] = x - minisize / 2) + "px";
+        herz[c].style.top = (herzy[c] = y - minisize) + "px";
+        herz[c].style.fontSize = minisize + "px";
+        herz[c].style.fontWeight = 'normal';
+        herz[c].style.visibility = 'visible';
+        herzs[c] = minisize;
+        break;
+      }
+    }
+    for (c = 0; c < hearts; c++) if (herzy[c] !== false) blow_me_a_kiss(c);
+    setTimeout(herzle, 35);
+  }
+
+  document.onmousedown = pucker;
+  document.onmouseup = function() { clearTimeout(kiss); };
+
+  function pucker() {
+    ox = -1;
+    oy = -1;
+    kiss = setTimeout(pucker, 100);
+  }
+
+  function blow_me_a_kiss(i) {
+    herzy[i] -= herzs[i] / minisize + i % 2;
+    herzx[i] += (i % 5 - 2) / 5;
+    if (herzy[i] < sdown - herzs[i] || herzx[i] < sleft - herzs[i] || herzx[i] > sleft + swide - herzs[i]) {
+      herz[i].style.visibility = "hidden";
+      herzy[i] = false;
+    }
+    else if (herzs[i] > minisize + 2 && Math.random() < .5 / hearts) break_my_heart(i);
+    else {
+      if (Math.random() < maxisize / herzy[i] && herzs[i] < maxisize) herz[i].style.fontSize = (++herzs[i]) + "px";
+      herz[i].style.top = herzy[i] + "px";
+      herz[i].style.left = herzx[i] + "px";
+    }
+  }
+
+  function break_my_heart(i) {
+    herz[i].firstChild.nodeValue = String.fromCharCode(9676);
+    herz[i].style.fontWeight = 'bold';
+    herzy[i] = false;
+    setTimeout(() => herz[i].style.visibility = "hidden", 400);
+  }
+
+  document.onmousemove = mouse;
+  function mouse(e) {
+    if (e) { y = e.pageY; x = e.pageX; }
+    else { set_scroll(); y = event.y + sdown; x = event.x + sleft; }
+  }
+
+  window.onresize = set_width;
+  function set_width() {
+    var sw_min = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var sh_min = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    swide = sw_min;
+    shigh = sh_min;
+  }
+
+  window.onscroll = set_scroll;
+  function set_scroll() {
+    sdown = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    sleft = window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0;
+  }
+
+  function createDiv(height, width) {
+    var div = document.createElement("div");
+    div.style.position = "absolute";
+    div.style.height = height;
+    div.style.width = width;
+    div.style.overflow = "hidden";
+    div.style.backgroundColor = "transparent";
+    return div;
+  }
+  </script>
+  -->
+  <!-- End of removed heart cursor script -->
+</head>
+
+<body>
+  <!-- Black overlay with sweet start button -->
+  <div id="overlay">
+    <div class="overlay-content">
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <button id="start-btn">
+        <i class="fa-solid fa-heart"></i>
+        💝 SELAMAT HARI ULANG TAHUN ZULAIKHA 💝
+        <i class="fa-solid fa-heart"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Birthday Card -->
+  <div class="flowers-wrapper">
+    <!-- Floating Hearts Background -->
+    <div class="hearts" aria-hidden="true"></div>
+    
+    <!-- Main Card Container -->
+    <div class="card">
+      <!-- Birthday Flags -->
+      <div class="flag__birthday">
+        <img src="./Images/1.png" alt="" width="200" class="flag__left">
+        <img src="./Images/1.png" alt="" width="200" class="flag__right">
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <div class="left">
+          <div class="title">
+            <h1 class="happy">
+              <span style="--t: 0.4s;">S</span>
+              <span style="--t: 0.5s;">E</span>
+              <span style="--t: 0.6s;">L</span>
+              <span style="--t: 0.7s;">A</span>
+              <span style="--t: 0.8s;">M</span>
+              <span style="--t: 0.9s;">A</span>
+              <span style="--t: 1.0s;">T</span>
+            </h1>
+            <h1 class="birthday">
+              <span style="--t: 0.9s;">U</span>
+              <span style="--t: 1.0s;">L</span>
+              <span style="--t: 1.1s;">A</span>
+              <span style="--t: 1.2s;">N</span>
+              <span style="--t: 1.3s;">G</span>
+            </h1>
+            <h1 class="birthday tahun">
+              <span style="--t: 1.5s;">T</span>
+              <span style="--t: 1.6s;">A</span>
+              <span style="--t: 1.7s;">H</span>
+              <span style="--t: 1.8s;">U</span>
+              <span style="--t: 1.9s;">N</span>
+            </h1>
+            <div class="hat">
+              <img src="./Images/hat.png" alt="" width="100">
+            </div>
+          </div>
+
+          <div class="date__of__birth">
+            <span></span>
+          </div>
+
+          <div class="btn">
+            <button id="btn__letter">
+              <i class="fa-regular fa-envelope"></i>
+              Tekan Lah Sini ada suprise 
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="box__account">
+            <div class="image">
+              <img src="./Images/Aiqha.jpg" alt="">
+            </div>
+            <div class="name">
+              <i class="fa-solid fa-heart"></i>
+              <span>Zulaikha</span>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="balloon_one">
+              <img width="80px" src="./Images/balloon1.png" alt="">
+            </div>
+            <div class="balloon_two">
+              <img width="80px" src="./Images/balloon2.png" alt="">
+            </div>
+          </div>
+
+          <div class="cricle">
+            <div class="text__cricle">
+              <span style="--i: 1;">S</span>
+              <span style="--i: 2;">E</span>
+              <span style="--i: 3;">L</span>
+              <span style="--i: 4;">A</span>
+              <span style="--i: 5;">M</span>
+              <span style="--i: 6;">A</span>
+              <span style="--i: 7;">T</span>
+              <span style="--i: 8;">-</span>
+              <span style="--i: 9;">U</span>
+              <span style="--i: 10;">L</span>
+              <span style="--i: 11;">A</span>
+              <span style="--i: 12;">N</span>
+              <span style="--i: 13;">G</span>
+              <span style="--i: 14;">-</span>
+              <span style="--i: 15;">T</span>
+              <span style="--i: 16;">A</span>
+              <span style="--i: 17;">H</span>
+              <span style="--i: 18;">U</span>
+              <span style="--i: 19;">N</span>
+              <span style="--i: 20;">-</span>
+            </div>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="decorate_star star1" style="--t: 8s;"></div>
+      <div class="decorate_star star2" style="--t: 8.2s;"></div>
+      <div class="decorate_star star3" style="--t: 8.4s;"></div>
+      <div class="decorate_star star4" style="--t: 8.6s;"></div>
+      <div class="decorate_star star5" style="--t: 8.8s;"></div>
+
+      <div class="decorate_flower--one" style="--t: 8s;">
+        <img width="25" src="./Images/decorate_flower.png" alt="">
+      </div>
+      <div class="decorate_flower--two" style="--t: 8.3s;">
+        <img width="25" src="./Images/decorate_flower.png" alt="">
+      </div>
+      <div class="decorate_flower--three" style="--t: 8.6s;">
+        <img width="25" src="./Images/decorate_flower.png" alt="">
+      </div>
+
+      <div class="decorate_bottom">
+        <img src="./Images/decorate.png" alt="" width="80">
+      </div>
+    </div>
+
+    <!-- Sweet Message Letter Box -->
+    <div class="box__letter">
+      <div class="letter__border">
+        <div class="letter">
+          <div class="title__letter"></div>
+          <div class="content__letter">
+            <div class="left">
+              <img id="heart__letter" src="https://media0.giphy.com/media/c76IJLufpNwSULPk77/giphy.gif" alt="">
+              <img class="heart heart_1" style="--t: 0.2s" width="20" src="./Images/heart.png" alt="">
+              <img class="heart heart_2" style="--t: 0.4s" width="20" src="./Images/heart.png" alt="">
+              <img class="heart heart_3" style="--t: 0.6s" width="20" src="./Images/heart.png" alt="">
+              <img class="heart heart_4" style="--t: 0.8s" width="20" src="./Images/heart.png" alt="">
+            </div>
+            <div class="right">
+              <div class="text__letter">
+                <p id="message"></p>
+              </div>
+              <img id="mewmew" width="50" src="./Images/mewmew.gif" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="back-button close-button">
+          <i class="fa-solid fa-xmark"></i>
+          <span>Close</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="backgroundMusic" loop>
+    <source src="HappyBirthdayAiqhaSong.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Enhanced message content
+    const message = `ASSALAMUALAIKUM WAHAI SAUDARI ZULAIKHA,
+
+Alhamdulillah, syukur atas nikmat kurniaan Tuhan. Di kala hidup mendatangkan seribu satu keperitan dan dugaan, saudari tetap teguh berdiri, dan akhirnya tiba di hari yang dinanti penuh makna ini.
+
+Saya, Muhammad Saiful Iqbal, ingin mengucapkan Selamat Ulang Tahun yang ke-20. Wahai saudari, menjelang dua dekad kehidupan saudari, saya sentiasa mengiringkan doa agar saudari sentiasa berada dalam keadaan sihat hendaknya, dikurniakan jiwa yang tenang, dan setiap satu urusan saudari dipermudahkan dengan penuh keberkatan.
+
+Lebih bermakna lagi, ulang tahun saudari pada tahun ini jatuh sehari sebelum menjelangnya bulan yang mulia, Ramadan. Maka saya mengambil peluang ini untuk mengucapkan selamat beramal soleh sepanjang bulan Ramadan buat saudari sekeluarga.
+
+Semoga kehidupan saudari di kehadapannya akan terus dikelilingi oleh insan-insan yang baik budi dan budiman, yang sentiasa mencoretkan senyuman kebahagiaan di wajah saudari.
+
+Saya juga mengharapkan agar saudari akan terus berkarya dengan cara saudari yang tersendiri. Janganlah sesekali berhenti menyebarkan kebaikan kepada orang ramai, kerana secara tidak langsung saya yakin saudari telah mengubah ramai kehidupan masyarakat di luar sana.
+
+Sebelum saya mengakhiri ucapan ini, izinkan saya menyampaikan serangkap pantun untuk saudari:
+
+Bunga mawar mekar berseri,
+Wangi semerbak di pagi hari;
+Genaplah 20 usia saudari,
+Moga seronoknya kekal abadi.
+
+Selamat Ulang Tahun yang ke-20,
+Zulaikha binti Mohammed Omar.
+
+Ikhlas dari hati,
+IqbalHappy`;
+
+    // Configuration
+    let datetxt = "18 February 2026";
+    let titleLetter = "Ke Hadapan Saudari Zulaikha";
+    let charArrDate = datetxt.split('');
+    let charArrDateLetter = message.split('');
+    let charArrTitle = titleLetter.split('');
+    let currentIndex = 0;
+    let currentIndexLetter = 0;
+    let currentIndexTitle = 0;
+    let date__of__birth = document.querySelector(".date__of__birth span");
+    let text__letter = document.querySelector("#message");
+
+    // Overlay and start functionality
+    const overlay = document.getElementById("overlay");
+    const startBtn = document.getElementById("start-btn");
+    const wrapper = document.querySelector(".flowers-wrapper");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+
+    startBtn.addEventListener("click", () => {
+      // Hide overlay with fade out
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 500);
+
+      // Show wrapper with fade-in
+      wrapper.style.display = "flex";
+      wrapper.style.opacity = "0";
+      setTimeout(() => {
+        wrapper.style.opacity = "1";
+      }, 100);
+
+      // Play background music
+      backgroundMusic.volume = 0.3;
+      backgroundMusic.play().catch(err => {
+        console.log("Autoplay blocked:", err);
+      });
+
+      // Start date animation
+      setTimeout(function(){
+        timeDatetxt = setInterval(function(){
+          if(currentIndex < charArrDate.length){
+            date__of__birth.textContent += charArrDate[currentIndex];
+            currentIndex++;
+          } else {
+            let i = document.createElement("i");
+            i.className = "fa-solid fa-star";
+            document.querySelector(".date__of__birth").prepend(i);
+            document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
+            clearInterval(timeDatetxt);
+          }
+        },100)
+      }, 1500);
+    });
+
+    // Letter functionality
+    var intervalContent;
+    var intervalTitle;
+    $("#btn__letter").on("click", function(){
+      $(".box__letter").fadeIn();
+      setTimeout(function(){
+        $(".letter__border").slideDown();
+      }, 500);
+      setTimeout(function(){
+        intervalTitle = setInterval(function(){
+          if(currentIndexTitle < charArrTitle.length){
+            document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+            let i = document.createElement("i");
+            i.className = "fa-solid fa-heart";
+            document.querySelector(".title__letter").appendChild(i);
+            currentIndexTitle++;
+          } else {
+            clearInterval(intervalTitle);
+          }
+        }, 100);
+      }, 1000);
+      setTimeout(function(){
+        document.querySelector("#heart__letter").classList.add("animationOp");
+        document.querySelector(".love__img").classList.add("animationOp");
+        document.querySelector("#mewmew").classList.add("animationOp");
+      }, 1500);
+      setTimeout(function(){
+        document.querySelectorAll(".heart").forEach((item)=>{
+          item.classList.add("animation");
+        })
+      }, 2000);
+      setTimeout(function(){
+        intervalContent = setInterval(function(){
+          if(currentIndexLetter < charArrDateLetter.length){
+            text__letter.textContent += charArrDateLetter[currentIndexLetter];
+            currentIndexLetter++;
+          } else {
+            clearInterval(intervalContent);
+          }
+        }, 30);
+      }, 3000);
+    });
+
+    // Close button function
+    function closeLetter() {
+      // Clear all intervals
+      if(intervalContent) clearInterval(intervalContent);
+      if(intervalTitle) clearInterval(intervalTitle);
+      
+      // Reset content
+      const titleLetter = document.querySelector(".title__letter");
+      if(titleLetter) titleLetter.textContent = "";
+      if(text__letter) text__letter.textContent = "";
+      
+      // Reset counters
+      currentIndexLetter = 0;
+      currentIndexTitle = 0;
+      
+      // Remove animations
+      const heartLetter = document.querySelector("#heart__letter");
+      if(heartLetter) heartLetter.classList.remove("animationOp");
+      
+      const loveImg = document.querySelector(".love__img");
+      if(loveImg) loveImg.classList.remove("animationOp");
+      
+      const mewmew = document.querySelector("#mewmew");
+      if(mewmew) mewmew.classList.remove("animationOp");
+      
+      document.querySelectorAll(".heart").forEach((item)=>{
+        item.classList.remove("animation");
+      });
+      
+      // Hide letter box
+      $(".letter__border").slideUp(300, function() {
+        $(".box__letter").fadeOut(300);
+      });
+    }
+
+    // Event handlers for close buttons - using event delegation
+    $(document).on("click", ".close", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeLetter();
+      return false;
+    });
+
+    $(document).on("click", ".back-button", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeLetter();
+      return false;
+    });
+
+    $(document).on("click", ".close-button", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeLetter();
+      return false;
+    });
+
+    // Also add native event listeners as backup
+    document.addEventListener('click', function(e) {
+      const target = e.target;
+      const closeBtn = target.closest('.close');
+      const backBtn = target.closest('.back-button');
+      const closeBtn2 = target.closest('.close-button');
+      
+      if(closeBtn || backBtn || closeBtn2) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeLetter();
+        return false;
+      }
+    }, true);
+
+    // Enhanced floating hearts
+    function spawnHeart() {
+      const container = document.querySelector('.hearts');
+      if (!container) return;
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      const size = Math.random() * 15 + 10;
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size}px`;
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.bottom = '-20px';
+      heart.style.animationDuration = `${Math.random() * 4 + 6}s`;
+      heart.style.opacity = `${0.4 + Math.random() * 0.6}`;
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000);
+    }
+
+    // Start floating hearts after overlay is hidden
+    setTimeout(() => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) setInterval(spawnHeart, 800);
+    }, 2000);
+  </script>
+</body>
+</html>
