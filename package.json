@@ -1,0 +1,16 @@
+{
+  "name": "zulaikha-birthday-2026",
+  "version": "1.0.0",
+  "description": "Happy Birthday Zulaikha - Optimized Web App",
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.js",
+    "optimize:audio": "node scripts/optimize-audio.js",
+    "build": "npm run optimize:images && npm run optimize:audio"
+  },
+  "devDependencies": {
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "imagemin-webp": "^8.0.0"
+  }
+}
