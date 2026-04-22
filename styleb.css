@@ -16,7 +16,12 @@ body {
   --glow-lightness: 70;
   --glow-alpha: 0.5;
   --transparency-alpha: 0;
-  --glow: hsla(var(--glow-hue), calc(var(--glow-saturation) * 1%), calc(var(--glow-lightness) * 1%), var(--glow-alpha));
+  --glow: hsla(
+    var(--glow-hue),
+    calc(var(--glow-saturation) * 1%),
+    calc(var(--glow-lightness) * 1%),
+    var(--glow-alpha)
+  );
   --transparent: hsla(0, 0%, 0%, var(--transparency-alpha));
   display: flex;
   overflow-x: hidden;
@@ -25,25 +30,35 @@ body {
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, 
-    #ffeef7 0%, 
+  background: linear-gradient(
+    135deg,
+    #ffeef7 0%,
     #fff0f5 20%,
-    #ffe4e9 40%, 
+    #ffe4e9 40%,
     #ffb6c1 60%,
     #ff91a4 80%,
-    #ffeef7 100%);
+    #ffeef7 100%
+  );
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   position: relative;
-  font-family: 'Fredoka', 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family:
+    'Fredoka',
+    'Poppins',
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
 }
 
 /* Hello Kitty decorative hearts background */
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
-  background-image: 
+  background-image:
     radial-gradient(4px 4px at 20% 30%, rgba(255, 182, 193, 0.6), transparent),
     radial-gradient(3px 3px at 60% 70%, rgba(255, 105, 180, 0.5), transparent),
     radial-gradient(2px 2px at 80% 20%, rgba(255, 192, 203, 0.7), transparent),
@@ -57,14 +72,25 @@ body::before {
 }
 
 @keyframes sparkle {
-  0%, 100% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .whitespace {
   width: 7px;
@@ -76,7 +102,7 @@ body::before {
   margin-top: 30px;
   font-weight: 600;
   font-family: 'Fredoka', 'Poppins', sans-serif;
-  text-shadow: 
+  text-shadow:
     0 2px 8px rgba(255, 182, 193, 0.6),
     0 0 15px rgba(255, 105, 180, 0.4);
   /* Center text */
@@ -84,12 +110,12 @@ body::before {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: blink 1.2s infinite, pulse 2s ease-in-out infinite;
+  animation:
+    blink 1.2s infinite,
+    pulse 2s ease-in-out infinite;
   width: 100%;
   padding: 12px 25px;
-  background: linear-gradient(135deg, 
-    rgba(255, 182, 193, 0.3) 0%,
-    rgba(255, 192, 203, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 192, 203, 0.2) 100%);
   border-radius: 30px;
   backdrop-filter: blur(10px);
   border: 3px solid rgba(255, 182, 193, 0.5);
@@ -99,16 +125,24 @@ body::before {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
-
-
 
 .flowers-wrapper {
   width: 100%;
@@ -135,7 +169,7 @@ body::before {
   font-size: 3.5rem;
   color: #ff69b4;
   margin: 0;
-  text-shadow: 
+  text-shadow:
     0 2px 4px rgba(255, 182, 193, 0.8),
     0 4px 20px rgba(255, 105, 180, 0.5),
     0 0 30px rgba(255, 192, 203, 0.6),
@@ -151,7 +185,7 @@ body::before {
   color: #ff91a4;
   margin-top: 15px;
   font-weight: 500;
-  text-shadow: 
+  text-shadow:
     0 2px 8px rgba(255, 182, 193, 0.6),
     0 0 15px rgba(255, 105, 180, 0.4);
   letter-spacing: 1px;
@@ -169,8 +203,9 @@ body::before {
 }
 
 @keyframes titleGlow {
-  0%, 100% {
-    text-shadow: 
+  0%,
+  100% {
+    text-shadow:
       0 2px 4px rgba(255, 182, 193, 0.8),
       0 4px 20px rgba(255, 105, 180, 0.5),
       0 0 30px rgba(255, 192, 203, 0.6),
@@ -178,7 +213,7 @@ body::before {
     transform: scale(1);
   }
   50% {
-    text-shadow: 
+    text-shadow:
       0 2px 6px rgba(255, 182, 193, 1),
       0 4px 25px rgba(255, 105, 180, 0.7),
       0 0 40px rgba(255, 192, 203, 0.8),
@@ -190,7 +225,7 @@ body::before {
 .flowers {
   transform: scale(1);
   transform-origin: center;
-  max-width: 90vw;  /* jangan lebih dari lebar skrin */
+  max-width: 90vw; /* jangan lebih dari lebar skrin */
   max-height: 90vh; /* jangan lebih dari tinggi skrin */
 }
 
@@ -233,7 +268,8 @@ body::before {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(0.7);
   }
   50% {
@@ -255,15 +291,15 @@ body::before {
   font-family: 'Fredoka', 'Poppins', sans-serif;
   font-weight: 600;
   color: white;
-  text-shadow: 
+  text-shadow:
     2px 2px 4px rgba(255, 105, 180, 0.5),
     0 0 10px rgba(255, 255, 255, 0.8);
   letter-spacing: 1px;
 }
 
 @media (max-width: 480px) {
-  .birthday-button { 
-    transform: scale(0.85); 
+  .birthday-button {
+    transform: scale(0.85);
     padding: 30px 15px 70px 15px;
   }
   .birthday-button__cake {
@@ -273,8 +309,8 @@ body::before {
 }
 
 @media (max-width: 360px) {
-  .birthday-button { 
-    transform: scale(0.8); 
+  .birthday-button {
+    transform: scale(0.8);
     padding: 25px 10px 60px 10px;
   }
   .birthday-button__cake {
@@ -284,7 +320,10 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 .birthday-button__text .char {
   display: inline-block;
@@ -295,7 +334,9 @@ body::before {
   position: absolute;
   height: 240px;
   width: 240px;
-  background: radial-gradient(var(--glow), var(--transparent) 30%), radial-gradient(var(--glow), var(--transparent) 50%);
+  background:
+    radial-gradient(var(--glow), var(--transparent) 30%),
+    radial-gradient(var(--glow), var(--transparent) 50%);
   border-radius: 50%;
   top: 50%;
   left: 50%;
@@ -310,7 +351,9 @@ body::before {
   width: 400px;
   filter: blur(15px);
   position: absolute;
-  background: radial-gradient(var(--glow), var(--transparent) 20%), radial-gradient(var(--glow), var(--transparent));
+  background:
+    radial-gradient(var(--glow), var(--transparent) 20%),
+    radial-gradient(var(--glow), var(--transparent));
   top: 100%;
   left: 50%;
   transform: translate(-50%, -50%) scale(calc(var(--flame) * 1));
@@ -321,16 +364,18 @@ body::before {
   height: 100px;
   position: relative;
   border: 4px solid #ffb6c1;
-  background: linear-gradient(135deg, 
-    #ffb6c1 0%, 
+  background: linear-gradient(
+    135deg,
+    #ffb6c1 0%,
     #ff91a4 25%,
     #ff69b4 50%,
     #ff91a4 75%,
-    #ffb6c1 100%);
+    #ffb6c1 100%
+  );
   background-size: 400% 400%;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 
+  box-shadow:
     0 8px 25px rgba(255, 105, 180, 0.4),
     0 0 50px rgba(255, 182, 193, 0.5),
     inset 0 3px 15px rgba(255, 255, 255, 0.6),
@@ -345,12 +390,19 @@ body::before {
   opacity: 0;
   pointer-events: none;
   transform: scale(0.8);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
 @keyframes gradient-shift-button {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 .birthday-button__button::before {
@@ -375,7 +427,7 @@ body::before {
 }
 
 .birthday-button__button:hover {
-  box-shadow: 
+  box-shadow:
     0 12px 35px rgba(255, 105, 180, 0.6),
     0 0 70px rgba(255, 182, 193, 0.7),
     inset 0 4px 20px rgba(255, 255, 255, 0.7),
@@ -505,7 +557,7 @@ body::before {
 }
 
 /* Cake animation improvements */
-.birthday-button__cake[style*="display: block"] {
+.birthday-button__cake[style*='display: block'] {
   animation: cakeAppear 0.5s ease-out;
 }
 
@@ -566,7 +618,8 @@ label svg:nth-of-type(1) {
   overflow: hidden;
 }
 
-.star, .heart-float {
+.star,
+.heart-float {
   position: absolute;
   font-size: 2.5rem;
   opacity: 0.8;
@@ -720,10 +773,19 @@ label svg:nth-of-type(1) {
 }
 
 @keyframes bounceAround {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  25% { transform: translateY(-10px) rotate(-10deg); }
-  50% { transform: translateY(0) rotate(0deg); }
-  75% { transform: translateY(-10px) rotate(10deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(-10deg);
+  }
+  50% {
+    transform: translateY(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(10deg);
+  }
 }
 
 /* Responsive improvements */
@@ -731,30 +793,31 @@ label svg:nth-of-type(1) {
   .welcome-title {
     font-size: 2.5rem;
   }
-  
+
   .welcome-subtitle {
     font-size: 1rem;
   }
-  
+
   .click-label {
     font-size: 1.1rem;
     padding: 10px 20px;
   }
-  
-  .star, .heart-float {
+
+  .star,
+  .heart-float {
     font-size: 2rem;
   }
-  
+
   .birthday-button .bow-decoration-left,
   .birthday-button .bow-decoration-right {
     font-size: 2rem;
     top: -15px;
   }
-  
+
   .birthday-button .bow-decoration-left {
     left: -30px;
   }
-  
+
   .birthday-button .bow-decoration-right {
     right: -30px;
   }
@@ -764,34 +827,35 @@ label svg:nth-of-type(1) {
   .welcome-title {
     font-size: 2rem;
   }
-  
+
   .welcome-subtitle {
     font-size: 0.95rem;
   }
-  
+
   .welcome-container {
     margin-bottom: 30px;
   }
-  
+
   .click-label {
     font-size: 1rem;
     padding: 10px 18px;
   }
-  
-  .star, .heart-float {
+
+  .star,
+  .heart-float {
     font-size: 1.8rem;
   }
-  
+
   .birthday-button .bow-decoration-left,
   .birthday-button .bow-decoration-right {
     font-size: 1.8rem;
     top: -12px;
   }
-  
+
   .birthday-button .bow-decoration-left {
     left: -25px;
   }
-  
+
   .birthday-button .bow-decoration-right {
     right: -25px;
   }

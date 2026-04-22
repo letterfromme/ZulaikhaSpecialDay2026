@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-const message = `ASSALAMUALAIKUM WAHAI SAUDARI ZULAIKHA,
+document.addEventListener('DOMContentLoaded', () => {
+  const message = `ASSALAMUALAIKUM WAHAI SAUDARI ZULAIKHA,
 
 Alhamdulillah, syukur atas nikmat kurniaan Tuhan. Di kala hidup mendatangkan seribu satu keperitan dan dugaan, saudari tetap teguh berdiri, dan akhirnya tiba di hari yang dinanti penuh makna ini.
 
@@ -24,36 +24,36 @@ Zulaikha binti Mohammed Omar.
 Ikhlas dari hati,
 IqbalHappy`;
 
-  const msgContainer = document.getElementById("message");
+  const msgContainer = document.getElementById('message');
   let i = 0;
 
   function typeWriter() {
     if (i < message.length) {
       msgContainer.textContent += message.charAt(i);
       i++;
-      
+
       // Random typing speed for more natural feel
       const baseSpeed = 40;
       const randomVariation = Math.random() * 20;
       const speed = baseSpeed + randomVariation;
-      
+
       setTimeout(typeWriter, speed);
     } else {
       // Remove cursor when complete
       msgContainer.classList.add('complete');
-      
+
       // After typing finishes, fade in signature with surprise
       setTimeout(() => {
         const s = document.getElementById('signature');
-        if (s) { 
-          s.style.opacity = '0'; 
-          s.style.transition = 'opacity 1.5s ease, transform 1.5s ease'; 
-          requestAnimationFrame(() => { 
-            s.style.opacity = '1'; 
+        if (s) {
+          s.style.opacity = '0';
+          s.style.transition = 'opacity 1.5s ease, transform 1.5s ease';
+          requestAnimationFrame(() => {
+            s.style.opacity = '1';
             s.style.transform = 'translateX(0)';
-          }); 
+          });
         }
-        
+
         // Create surprise sparkles around signature
         createSignatureSparkles();
       }, 500);
@@ -67,13 +67,13 @@ IqbalHappy`;
       setTimeout(startTypingWhenReady, 100);
       return;
     }
-    
+
     // Check if already visible
     if (wrapper.classList.contains('show')) {
       setTimeout(() => typeWriter(), 500);
       return;
     }
-    
+
     // Watch for when card becomes visible
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -85,9 +85,9 @@ IqbalHappy`;
         }
       });
     });
-    
+
     observer.observe(wrapper, { attributes: true });
-    
+
     // Fallback: also check periodically
     const checkInterval = setInterval(() => {
       if (wrapper.classList.contains('show')) {
@@ -97,19 +97,19 @@ IqbalHappy`;
       }
     }, 200);
   }
-  
+
   startTypingWhenReady();
 
   // Enhanced hearts spawn with variety
   function spawnHeart() {
     const container = document.querySelector('.hearts');
     if (!container) return;
-    
+
     const heart = document.createElement('div');
     const heartTypes = ['heart', 'heart-pink', 'heart-gold', 'heart-white'];
     const heartType = heartTypes[Math.floor(Math.random() * heartTypes.length)];
     heart.className = `heart ${heartType}`;
-    
+
     const size = Math.random() * 15 + 8; // 8 - 23px
     heart.style.width = `${size}px`;
     heart.style.height = `${size}px`;
@@ -118,7 +118,7 @@ IqbalHappy`;
     heart.style.animationDuration = `${Math.random() * 4 + 6}s`;
     heart.style.opacity = `${0.4 + Math.random() * 0.6}`;
     heart.style.animationDelay = `${Math.random() * 0.5}s`;
-    
+
     container.appendChild(heart);
     setTimeout(() => heart.remove(), 12000);
   }
@@ -127,14 +127,14 @@ IqbalHappy`;
   function spawnSparkle() {
     const container = document.querySelector('.sparkles');
     if (!container) return;
-    
+
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
     sparkle.style.left = `${Math.random() * 100}%`;
     sparkle.style.top = `${Math.random() * 100}%`;
     sparkle.style.animationDelay = `${Math.random() * 2}s`;
     sparkle.style.animationDuration = `${Math.random() * 2 + 2}s`;
-    
+
     container.appendChild(sparkle);
     setTimeout(() => sparkle.remove(), 4000);
   }
@@ -143,11 +143,11 @@ IqbalHappy`;
   function createSignatureSparkles() {
     const signature = document.getElementById('signature');
     if (!signature) return;
-    
+
     const rect = signature.getBoundingClientRect();
     const container = document.querySelector('.sparkles');
     if (!container) return;
-    
+
     for (let i = 0; i < 8; i++) {
       setTimeout(() => {
         const sparkle = document.createElement('div');
@@ -164,13 +164,13 @@ IqbalHappy`;
   }
 
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
+
   if (!prefersReduced) {
     // Spawn hearts more frequently
     setInterval(spawnHeart, 500);
     // Spawn sparkles less frequently
     setInterval(spawnSparkle, 2000);
-    
+
     // Initial sparkles burst
     setTimeout(() => {
       for (let i = 0; i < 10; i++) {

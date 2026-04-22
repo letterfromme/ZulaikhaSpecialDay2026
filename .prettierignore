@@ -1,0 +1,6 @@
+node_modules
+.junie
+.idea
+archive
+docs
+package-lock.json

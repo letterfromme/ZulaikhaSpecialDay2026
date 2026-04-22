@@ -1,6 +1,10 @@
 #!/bin/bash
 # 🚀 DEPLOYMENT CHECKLIST
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+cd "$REPO_ROOT"
+
 echo "╔════════════════════════════════════════════════════════════════════════════╗"
 echo "║               ZULAIKHA BIRTHDAY 2026 - DEPLOYMENT CHECKLIST               ║"
 echo "╚════════════════════════════════════════════════════════════════════════════╝"
@@ -12,12 +16,12 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-# Step 1: Check index-optimized.html exists
+# Step 1: Check optimized HTML variant exists
 echo "[1/5] Checking optimized HTML file..."
-if [ -f "index-optimized.html" ]; then
-    echo -e "${GREEN}✅ index-optimized.html found${NC}"
+if [ -f "archive/variants/index-optimized.html" ]; then
+    echo -e "${GREEN}✅ archive/variants/index-optimized.html found${NC}"
 else
-    echo -e "${RED}❌ index-optimized.html NOT found${NC}"
+    echo -e "${RED}❌ archive/variants/index-optimized.html NOT found${NC}"
     exit 1
 fi
 
@@ -70,7 +74,7 @@ echo "╚═══════════════════════�
 echo ""
 
 echo "📋 OPTION 1: Quick Test (No deployment)"
-echo "   1. Open: firefox index-optimized.html"
+echo "   1. Open: firefox archive/variants/index-optimized.html"
 echo "   2. Press: F12 → Network tab"
 echo "   3. Click: 💝 SELAMAT HARI ULANG TAHUN ZULAIKHA 💝 button"
 echo "   4. Check: Load time < 2 seconds ✓"
@@ -78,8 +82,8 @@ echo ""
 
 echo "📋 OPTION 2: Local Deployment"
 echo "   1. Backup:  cp index.html index-old.html"
-echo "   2. Deploy:  cp index-optimized.html index.html"
-echo "   3. Compress: bash optimize-images.sh (or use TinyPNG)"
+echo "   2. Deploy:  cp archive/variants/index-optimized.html index.html"
+echo "   3. Compress: scripts/optimize-images.bat (or use TinyPNG)"
 echo "   4. Test:    Open http://localhost:8080/index.html"
 echo "   5. Verify:  DevTools Network < 1.5MB total"
 echo ""

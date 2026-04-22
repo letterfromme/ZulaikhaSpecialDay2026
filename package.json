@@ -1,16 +1,18 @@
 {
   "name": "zulaikha-birthday-2026",
   "version": "1.0.0",
-  "description": "Happy Birthday Zulaikha - Optimized Web App",
+  "description": "Birthday microsite for Zulaikha 2026",
+  "private": true,
   "scripts": {
-    "optimize:images": "node scripts/optimize-images.js",
-    "optimize:audio": "node scripts/optimize-audio.js",
-    "build": "npm run optimize:images && npm run optimize:audio"
+    "dev": "npx --yes http-server . -p 8080 -c-1",
+    "format": "prettier --write \"**/*.{css,js,md,json}\"",
+    "format:check": "prettier --check \"**/*.{css,js,md,json}\""
   },
   "devDependencies": {
     "imagemin": "^8.0.1",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
-    "imagemin-webp": "^8.0.0"
+    "imagemin-webp": "^8.0.0",
+    "prettier": "^3.8.3"
   }
 }
