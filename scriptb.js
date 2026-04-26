@@ -7,19 +7,30 @@ const {
 Splitting();
 
 const BTN = document.querySelector('.birthday-button__button');
-const SOUNDS = {
-  CHEER: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/cheer.mp3'),
+let SOUNDS_LOADED = false;
+let SOUNDS = {};
 
-  MATCH: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/match-strike-trimmed.mp3'),
+const loadSounds = () => {
+  if (SOUNDS_LOADED) return;
+  SOUNDS = {
+    CHEER: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/cheer.mp3'),
+    MATCH: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/match-strike-trimmed.mp3'),
+    TUNE: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/happy-birthday-trimmed.mp3'),
+    ON: new Audio('https://assets.codepen.io/605876/switch-on.mp3'),
+    BLOW: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/blow-out.mp3'),
+    POP: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/pop-trimmed.mp3'),
+    HORN: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/horn.mp3'),
+  };
 
-  TUNE: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/happy-birthday-trimmed.mp3'),
+  // Set all to false muted by default as in the original code but only after initialized
+  Object.values(SOUNDS).forEach(s => s.muted = false);
 
-  ON: new Audio('https://assets.codepen.io/605876/switch-on.mp3'),
-  BLOW: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/blow-out.mp3'),
+  SOUNDS_LOADED = true;
 
-  POP: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/pop-trimmed.mp3'),
-
-  HORN: new Audio('https://s3-us-west-2.amazonaws.com/s.cdpn.io/605876/horn.mp3'),
+  // Re-bind end events
+  if (SOUNDS.TUNE && SOUNDS.MATCH) {
+    SOUNDS.TUNE.onended = SOUNDS.MATCH.onended = () => MASTER_TL.play();
+  }
 };
 
 const EYES = document.querySelector('.cake__eyes');
@@ -128,9 +139,9 @@ const SHAKE_TL = () =>
           FLICKER_TL.play();
         },
         onStart: () => {
-          SOUNDS.POP.play();
-          delayedCall(0.2, () => SOUNDS.POP.play());
-          delayedCall(0.4, () => SOUNDS.POP.play());
+          if (SOUNDS.POP) SOUNDS.POP.play();
+          delayedCall(0.2, () => { if (SOUNDS.POP) SOUNDS.POP.play(); });
+          delayedCall(0.4, () => { if (SOUNDS.POP) SOUNDS.POP.play(); });
         },
         ease: 'Elastic.easeOut',
         duration: 0.2,
@@ -148,7 +159,7 @@ const FLAME_TL = () =>
 const LIGHTS_OUT = () =>
   timeline().to('body', {
     onStart: () => {
-      SOUNDS.BLOW.play();
+      if (SOUNDS.BLOW) SOUNDS.BLOW.play();
       // Activate full page black overlay
       const overlay = document.getElementById('lights-out-overlay');
       if (overlay) {
@@ -240,7 +251,7 @@ const RESET = () => {
 RESET();
 const MASTER_TL = timeline({
   onStart: () => {
-    SOUNDS.ON.play();
+    if (SOUNDS.ON) SOUNDS.ON.play();
   },
   onComplete: () => {
     gsap.delayedCall(2, () => {
@@ -252,13 +263,13 @@ const MASTER_TL = timeline({
 })
   .set('.birthday-button__cake', { display: 'block', opacity: 0 })
   .to('.birthday-button', {
-    onStart: () => SOUNDS.CHEER.play(),
+    onStart: () => { if (SOUNDS.CHEER) SOUNDS.CHEER.play(); },
     scale: 1,
     duration: 0.2,
   })
   .to('.char', { '--char-sat': 70, '--char-light': 65, duration: 0.2 }, 0)
   .to('.char', {
-    onStart: () => SOUNDS.HORN.play(),
+    onStart: () => { if (SOUNDS.HORN) SOUNDS.HORN.play(); },
     delay: 0.75,
     y: () => gsap.utils.random(-100, -200),
     x: () => gsap.utils.random(-50, 50),
@@ -311,9 +322,10 @@ const MASTER_TL = timeline({
   .add(FLAME_TL(), 'FLAME_ON')
   .add(LIGHTS_OUT(), 'LIGHTS_OUT');
 
-SOUNDS.TUNE.onended = SOUNDS.MATCH.onended = () => MASTER_TL.play();
-MASTER_TL.addPause('FLAME_ON', () => SOUNDS.MATCH.play());
-MASTER_TL.addPause('LIGHTS_OUT', () => SOUNDS.TUNE.play());
+// Remove global binding, we do it in loadSounds
+// SOUNDS.TUNE.onended = SOUNDS.MATCH.onended = () => MASTER_TL.play();
+MASTER_TL.addPause('FLAME_ON', () => { if (SOUNDS.MATCH) SOUNDS.MATCH.play(); });
+MASTER_TL.addPause('LIGHTS_OUT', () => { if (SOUNDS.TUNE) SOUNDS.TUNE.play(); });
 // Confetti creation function
 function createConfetti() {
   const confettiContainer = document.querySelector('.confetti-container');
@@ -331,21 +343,22 @@ function createConfetti() {
     '#fd79a8',
     '#fdcb6e',
   ];
-  const confettiCount = 50;
+  const confettiCount = window.innerWidth < 768 ? 25 : 50;
 
   for (let i = 0; i < confettiCount; i++) {
     const confetti = document.createElement('div');
     confetti.style.position = 'absolute';
-    confetti.style.width = Math.random() * 10 + 5 + 'px';
-    confetti.style.height = Math.random() * 10 + 5 + 'px';
+    confetti.style.width = Math.random() * 8 + 4 + 'px';
+    confetti.style.height = Math.random() * 8 + 4 + 'px';
     confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
     confetti.style.left = Math.random() * 100 + '%';
     confetti.style.top = '-10px';
     confetti.style.opacity = Math.random();
     confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
     confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+    confetti.style.willChange = 'transform, opacity';
 
-    const animationDuration = Math.random() * 3 + 2;
+    const animationDuration = Math.random() * 2 + 2;
     const animationDelay = Math.random() * 0.5;
 
     confetti.style.animation = `confettiFall ${animationDuration}s ${animationDelay}s linear forwards`;
@@ -374,6 +387,7 @@ style.textContent = `
 document.head.appendChild(style);
 
 BTN.addEventListener('click', () => {
+  loadSounds();
   BTN.setAttribute('disabled', true);
 
   // Hide the "Click the button" label bila button ditekan
@@ -390,25 +404,12 @@ BTN.addEventListener('click', () => {
   MASTER_TL.restart();
 });
 
-SOUNDS.TUNE.muted =
-  SOUNDS.MATCH.muted =
-  SOUNDS.HORN.muted =
-  SOUNDS.POP.muted =
-  SOUNDS.CHEER.muted =
-  SOUNDS.BLOW.muted =
-  SOUNDS.ON.muted =
-    false;
-
+// Remove direct muted access, use safely
+// SOUNDS.TUNE.muted = ...
 const toggleAudio = () => {
+  if (!SOUNDS_LOADED) return;
   const newMuted = !SOUNDS.BLOW.muted;
-  SOUNDS.TUNE.muted =
-    SOUNDS.MATCH.muted =
-    SOUNDS.POP.muted =
-    SOUNDS.HORN.muted =
-    SOUNDS.CHEER.muted =
-    SOUNDS.BLOW.muted =
-    SOUNDS.ON.muted =
-      newMuted;
+  Object.values(SOUNDS).forEach(s => s.muted = newMuted);
 };
 
 // Only add event listener if volume control exists

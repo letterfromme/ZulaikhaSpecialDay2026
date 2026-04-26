@@ -118,6 +118,8 @@ body::before {
   background: linear-gradient(135deg, rgba(255, 182, 193, 0.3) 0%, rgba(255, 192, 203, 0.2) 100%);
   border-radius: 30px;
   backdrop-filter: blur(10px);
+  /* Optimization: will-change to hint browser about upcoming animations */
+  will-change: opacity, transform;
   border: 3px solid rgba(255, 182, 193, 0.5);
   position: relative;
   z-index: 2;
@@ -625,6 +627,8 @@ label svg:nth-of-type(1) {
   opacity: 0.8;
   animation: floatUp 15s infinite linear;
   filter: drop-shadow(0 2px 4px rgba(255, 182, 193, 0.5));
+  /* Optimization: Force GPU layer for floating elements */
+  will-change: transform, opacity;
 }
 
 .star-1 {
@@ -801,11 +805,16 @@ label svg:nth-of-type(1) {
   .click-label {
     font-size: 1.1rem;
     padding: 10px 20px;
+    /* Optimization: Disable expensive blur on mobile */
+    backdrop-filter: none;
+    background: rgba(255, 182, 193, 0.8);
   }
 
   .star,
   .heart-float {
     font-size: 2rem;
+    /* Optimization: Reduce animation complexity on mobile if needed,
+       but keeping floatUp for now as it's basic transform */
   }
 
   .birthday-button .bow-decoration-left,
