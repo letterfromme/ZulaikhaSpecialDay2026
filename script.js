@@ -8,6 +8,6 @@ onload = () => {
 window.addEventListener('load', () => {
   // Tunggu sampai animasi bunga habis (contoh 6s)
   setTimeout(() => {
-    window.location.href = 'indexX.html';
+    window.location.href = 'ucapan.html';
   }, 6000);
 });

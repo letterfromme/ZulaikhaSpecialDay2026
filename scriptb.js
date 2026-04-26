@@ -255,7 +255,7 @@ const MASTER_TL = timeline({
   },
   onComplete: () => {
     gsap.delayedCall(2, () => {
-      window.location.href = 'indexX.html';
+      window.location.href = 'ucapan.html';
     });
     BTN.removeAttribute('disabled');
   },
