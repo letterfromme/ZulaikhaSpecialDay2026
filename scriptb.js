@@ -5,6 +5,7 @@ const {
 } = window;
 
 Splitting();
+const PREFERS_REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const BTN = document.querySelector('.birthday-button__button');
 let SOUNDS_LOADED = false;
@@ -254,7 +255,7 @@ const MASTER_TL = timeline({
     if (SOUNDS.ON) SOUNDS.ON.play();
   },
   onComplete: () => {
-    gsap.delayedCall(2, () => {
+    gsap.delayedCall(0.7, () => {
       window.location.href = 'ucapan.html';
     });
     BTN.removeAttribute('disabled');
@@ -328,6 +329,7 @@ MASTER_TL.addPause('FLAME_ON', () => { if (SOUNDS.MATCH) SOUNDS.MATCH.play(); })
 MASTER_TL.addPause('LIGHTS_OUT', () => { if (SOUNDS.TUNE) SOUNDS.TUNE.play(); });
 // Confetti creation function
 function createConfetti() {
+  if (PREFERS_REDUCED) return;
   const confettiContainer = document.querySelector('.confetti-container');
   if (!confettiContainer) return;
 
@@ -343,7 +345,7 @@ function createConfetti() {
     '#fd79a8',
     '#fdcb6e',
   ];
-  const confettiCount = window.innerWidth < 768 ? 25 : 50;
+  const confettiCount = window.innerWidth < 768 ? 15 : 30;
 
   for (let i = 0; i < confettiCount; i++) {
     const confetti = document.createElement('div');
@@ -394,12 +396,17 @@ BTN.addEventListener('click', () => {
   const label = document.querySelector('.click-label');
   if (label) label.style.display = 'none';
 
-  // Create confetti
-  createConfetti();
+  if (!PREFERS_REDUCED) {
+    createConfetti();
+    setTimeout(() => createConfetti(), 300);
+  }
 
-  // Create more confetti after a delay
-  setTimeout(() => createConfetti(), 300);
-  setTimeout(() => createConfetti(), 600);
+  if (PREFERS_REDUCED) {
+    setTimeout(() => {
+      window.location.href = 'ucapan.html';
+    }, 500);
+    return;
+  }
 
   MASTER_TL.restart();
 });

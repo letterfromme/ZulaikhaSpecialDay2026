@@ -7,6 +7,17 @@
   --icing: #f2f2f2;
   --stroke: #1a1a1a;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  body {
+    scroll-behavior: auto;
+  }
+}
 body {
   --frosting: hsl(var(--frosting-hue, 0), 100%, 55%);
   --lightness: 50;

@@ -5,7 +5,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  background: url('background.jpg') no-repeat center center/cover;
+  background: linear-gradient(
+    135deg,
+    #ffeef7 0%,
+    #fff0f5 25%,
+    #ffe4e9 50%,
+    #fff0f5 75%,
+    #ffeef7 100%
+  );
   font-family:
     'Poppins',
     system-ui,
@@ -17,6 +24,14 @@ body {
     sans-serif;
   overflow-y: auto;
   position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Enhanced blur overlay with gradient */

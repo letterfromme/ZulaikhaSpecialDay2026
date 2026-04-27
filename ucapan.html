@@ -346,25 +346,39 @@
 
   <script src="ucapan.js?v=2.0" defer></script>
   <script>
-    // simpan semua sound dalam satu object (boleh tambah lain kalau nak)
-    const SOUNDS = {
-      SONG: new Audio("HappyBirthdayAiqhaSong.mp3"),
-    };
-
-    // setting untuk background song
-    SOUNDS.SONG.loop = true;
-    SOUNDS.SONG.volume = 0.7;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let SONG = null;
 
     const overlay = document.getElementById("overlay");
     const startBtn = document.getElementById("start-btn");
     const wrapper = document.querySelector(".flowers-wrapper");
     const confettiContainer = document.getElementById("confettiContainer");
 
+    function lazyLoadBackground() {
+      if (document.body.dataset.bgLoaded) return;
+      const img = new Image();
+      img.src = "background.jpg";
+      img.onload = () => {
+        document.body.style.background = "url('background.jpg') no-repeat center center/cover";
+        document.body.dataset.bgLoaded = "true";
+      };
+    }
+
+    function ensureSong() {
+      if (SONG) return SONG;
+      SONG = new Audio("HappyBirthdayAiqhaSong.mp3");
+      SONG.loop = true;
+      SONG.volume = 0.6;
+      SONG.preload = 'none';
+      return SONG;
+    }
+
     // Create floating hearts for extra cuteness
     function createFloatingHearts() {
+      if (prefersReduced) return;
       const hearts = ['💕', '💖', '💗', '💝', '💓', '💞'];
       // Optimization: Throttle heart generation based on screen width
-      const interval = window.innerWidth < 768 ? 1500 : 800;
+      const interval = window.innerWidth < 768 ? 2000 : 1200;
       setInterval(() => {
         if (overlay.style.display !== 'none') {
           const heart = document.createElement('div');
@@ -383,12 +397,15 @@
     }
 
     // Start floating hearts
-    createFloatingHearts();
+    if (!prefersReduced) {
+      createFloatingHearts();
+    }
 
     // Create confetti explosion
     function createConfetti() {
+      if (prefersReduced) return;
       const colors = ['#ff69b4', '#ffb6c1', '#ff4081', '#ff9100', '#fff', '#ffd700'];
-      const confettiCount = window.innerWidth < 768 ? 25 : 50;
+      const confettiCount = window.innerWidth < 768 ? 12 : 24;
 
       for (let i = 0; i < confettiCount; i++) {
         const confetti = document.createElement('div');
@@ -411,9 +428,14 @@
 
     startBtn.addEventListener("click", () => {
       // Initialize audio on click
-      if (SOUNDS.SONG.paused) {
-        SOUNDS.SONG.play().catch(e => console.log("Audio play failed:", e));
+      const song = ensureSong();
+      if (song.paused) {
+        song.play().catch(e => console.log("Audio play failed:", e));
       }
+
+      // Start loading background image after user gesture
+      lazyLoadBackground();
+
       // Create confetti explosion
       createConfetti();
 

@@ -167,14 +167,14 @@ IqbalHappy`;
 
   if (!prefersReduced) {
     // Spawn hearts more frequently
-    setInterval(spawnHeart, 500);
+    setInterval(spawnHeart, 900);
     // Spawn sparkles less frequently
-    setInterval(spawnSparkle, 2000);
+    setInterval(spawnSparkle, 2500);
 
     // Initial sparkles burst
     setTimeout(() => {
-      for (let i = 0; i < 10; i++) {
-        setTimeout(spawnSparkle, i * 100);
+      for (let i = 0; i < 6; i++) {
+        setTimeout(spawnSparkle, i * 120);
       }
     }, 500);
   }
