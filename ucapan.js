@@ -56,6 +56,11 @@ IqbalHappy`;
 
         // Create surprise sparkles around signature
         createSignatureSparkles();
+
+        // Then open the main birthday card page (index.html)
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 8000);
       }, 500);
     }
   }

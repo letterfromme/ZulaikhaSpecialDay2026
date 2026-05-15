@@ -1,168 +1,448 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>🎀 Selamat Ulang Tahun Zulaikha 🎀</title>
-  <!-- SEO & Social Sharing -->
-  <meta name="description" content="Special birthday wishes for Zulaikha. A dreamy celebration filled with love and magic.">
-  <meta property="og:title" content="🎀 Selamat Ulang Tahun Zulaikha 🎀">
-  <meta property="og:description" content="Click to celebrate Zulaikha's special day!">
-  <meta property="og:type" content="website">
-  <meta name="theme-color" content="#ffb6c1">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="Happy Birthday Zulaikha | Sweet Birthday Website">
+  <script>
+    (function () {
+      try {
+        if (new URLSearchParams(window.location.search).get('fromcake') === '1') return;
+      } catch (_) {
+        try {
+          if ((window.location.search || '').indexOf('fromcake=1') !== -1) return;
+        } catch (_) {}
+      }
+      try {
+        if (sessionStorage.getItem('zulaikhaFromCake') === '1') return;
+      } catch (_) {}
+      window.location.replace('ucapan.html');
+    })();
+  </script>
+  <title>Happy Birthday Zulaikha 💕</title>
+  <link rel="stylesheet" href="styleX.css?v=2.1">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="https://unpkg.com">
-  <link rel="dns-prefetch" href="https://s3-us-west-2.amazonaws.com">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
-  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
-<link rel="stylesheet" href="./styleb.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<!-- Black overlay for lights out effect -->
-<div id="lights-out-overlay"></div>
-
-<!-- Floating decorative elements - Hello Kitty theme -->
-<div class="floating-elements">
-  <div class="star star-1">🎀</div>
-  <div class="star star-2">✨</div>
-  <div class="star star-3">🌸</div>
-  <div class="star star-4">💕</div>
-  <div class="star star-5">🎀</div>
-  <div class="heart-float heart-1">💖</div>
-  <div class="heart-float heart-2">💝</div>
-  <div class="heart-float heart-3">💗</div>
-  <div class="heart-float heart-4">🎀</div>
-  <div class="heart-float heart-5">🌸</div>
-  <div class="heart-float heart-6">✨</div>
-</div>
-
-<div class="flowers-wrapper">
-  <div class="welcome-container">
-    <h1 class="welcome-title">🎀 Selamat Ulang Tahun Zulaikha 🎀</h1>
-    <p class="welcome-subtitle">✨ Click the button below to celebrate ✨</p>
+  <!-- Black overlay with sweet start button -->
+  <div id="overlay">
+    <div class="overlay-content">
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <div class="sparkle"></div>
+      <button id="start-btn">
+        <i class="fa-solid fa-heart"></i>
+        💝 SELAMAT HARI ULANG TAHUN ZULAIKHA 💝
+        <i class="fa-solid fa-heart"></i>
+      </button>
+    </div>
   </div>
 
-  <div class="birthday-button">
-    <div class="bow-decoration-left">🎀</div>
-    <div class="bow-decoration-right">🎀</div>
-    <button class="birthday-button__button">
-      <span class="birthday-button__text" data-splitting="">Happy Birthday!</span>
-    </button>
-    <svg class="birthday-button__cake" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 76.609 47.643" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <g id="candle" transform="translate(-48.82 -137.74)">
-            <rect ry=".567" y="147.888" x="72.548" height="12.001" width="4.252" fill="#ececec"></rect>
-            <g class="candle__flame">
-              <path class="candle__flame-outer" d="M75.672 145.92c.608 1.207.086 2.224-.749 2.224s-1.512-.037-1.512-1.388.558-3.566 1.98-3.973c1.007-.288-.855.884.281 3.138z" fill="#f60"></path>
-              <path class="candle__flame-inner" d="M75.081 146.449c.41.51.266 1.043-.13 1.128-.394.084-.682-.228-.822-.866 0 0-.13-1.382.502-1.719.447-.238-.315.505.45 1.457z" fill="#ff0"></path>
-            </g>
-            <g style="display: none">
-              <path id="flame-outer" d="M73.676 145.92c-.609 1.207-.086 2.224.749 2.224s1.511-.037 1.511-1.388-.557-3.566-1.98-3.973c-1.006-.288.856.884-.28 3.138z" fill="#f60"></path>
-              <path id="flame-inner" d="M74.267 146.449c-.41.51-.266 1.043.129 1.128.395.084.683-.228.823-.866 0 0 .13-1.382-.502-1.719-.447-.238.315.505-.45 1.457z" fill="#ff0"></path>
-            </g>
-          </g>
-          <clipPath id="face-clip">
-            <rect transform="translate(-48.82 -138.799)" width="63.5" height="26.458" x="55.374" y="159.984" ry="3.402"></rect>
-          </clipPath>
-          <clipPath id="sprinkle-clip">
-            <rect width="63.5" height="26.458" x="55.374" y="159.984" ry="3.402"></rect>
-          </clipPath>
-          <clipPath id="frosting-clip">
-            <path d="m 58.311339,159.19367 c -1.915439,0 -3.331523,2.04311 -3.986711,3.74446 -0.778328,2.02111 -0.761971,4.73695 0.529167,6.47582 0.861406,1.16012 2.614079,1.3182 4.033715,1.5875 1.321013,0.25059 2.689143,0 4.033714,0 1.344572,0 2.689143,0 4.033715,0 1.344572,0 2.689143,0 4.033715,0 1.344571,0 2.689143,0 4.033714,0 1.344572,0 2.689143,0 4.033715,0 1.344572,0 2.689143,0 4.033715,0 1.344572,0 2.689143,0 4.033715,0 1.344571,0 2.689143,0 4.033714,0 1.344572,0 2.689143,0 4.033715,0 1.344572,0 2.689143,0 4.033715,0 1.344573,0 2.689143,0 4.033713,0 1.34457,0 2.68915,0 4.03372,0 1.34457,0 2.68914,0 4.03371,0 1.34457,0 2.71271,0.25059 4.03372,0 1.41963,-0.2693 3.17231,-0.42738 4.03371,-1.5875 1.29114,-1.73887 1.3075,-4.45471 0.52917,-6.47582 -0.65519,-1.70135 -2.07128,-3.74446 -3.98672,-3.74446 z" style="fill:#ff0041;fill-opacity:0.53424659;fill-rule:nonzero;stroke:none;stroke-width:0.90433162;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"></path>
-          </clipPath>
-          <g id="sprinkles" transform="translate(63.93)">
-            <rect class="cake__sprinkle" transform="rotate(-44.064)" ry=".567" y="167.592" x="-91.837" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(127.01)" ry=".567" y="165.35" x="76.642" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(85.232)" width="3.307" height="1.228" x="182.37" y="3.842" ry=".567"></rect>
-            <rect class="cake__sprinkle" transform="rotate(136.794)" ry=".567" y="-137.013" x="122.349" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-28.569)" width="3.307" height="1.228" x="-90.997" y="160.466" ry=".567"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-134.37)" ry=".567" y="-124.272" x="-138.396" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-37.152)" width="3.307" height="1.228" x="-101.107" y="155.28" ry=".567"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-72.723)" ry=".567" y="77.322" x="-169.664" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(36.566)" width="3.307" height="1.228" x="124.338" y="135.065" ry=".567"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-45)" ry=".567" y="150.009" x="-111.692" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(30)" width="3.307" height="1.228" x="119.879" y="141.701" ry=".567"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-55.914)" ry=".567" y="139.024" x="-129.555" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(-30)" width="3.307" height="1.228" x="-60.133" y="178.671" ry=".567"></rect>
-            <rect class="cake__sprinkle" transform="rotate(45)" ry=".567" y="95.647" x="162.293" height="1.228" width="3.307"></rect>
-            <rect class="cake__sprinkle" transform="rotate(45)" ry=".567" y="133.647" x="124.293" height="1.228" width="3.307"></rect>
-          </g>
-          <path id="frosting" d="M58.311 159.194c-1.915 0-3.283-.087-3.986 1.098-.392.661-.073 1.766.529 2.243 1.054.834 2.689 0 4.034 0H115.36c1.344 0 2.979.834 4.033 0 .602-.477.921-1.582.53-2.243-.703-1.185-2.072-1.098-3.987-1.098z"></path>
-          <path class="cake__frosting cake__frosting--end" d="M58.311 159.194c-1.915 0-3.354 2.034-3.986 3.744-.57 1.537-.953 4.189.529 4.888 1.454.687 2.425-2.645 4.034-2.645 1.608 0 2.425 2.645 4.033 2.645 1.608 0 2.426-2.645 4.034-2.645 1.608 0 2.426 2.645 4.034 2.645 1.608 0 2.425-2.645 4.033-2.645 1.608 0 2.426 2.645 4.034 2.645 1.608 0 2.426-2.645 4.034-2.645 1.608 0 2.426 2.645 4.034 2.645 1.608 0 2.425-2.645 4.033-2.645 1.608 0 2.426 2.645 4.034 2.645 1.608 0 2.436-2.83 4.034-2.645 1.936.222 2.084 4.233 4.033 4.233 1.95 0 2.098-4.01 4.034-4.233 1.598-.184 2.426 2.645 4.034 2.645 1.608 0 2.426-2.645 4.034-2.645 1.608 0 2.58 3.332 4.033 2.645 1.482-.7 1.098-3.35.53-4.888-.633-1.71-2.072-3.744-3.987-3.744z"></path>
-          <rect id="cake-body" x="55.374" y="163.442" width="63.5" height="26.458" rx="3.402" ry="3.402" class="cake__body"></rect>
-        </defs>
-        <g class="cake-decoration" transform="translate(-48.82 -138.799)">
-          <use xlink:href="#cake-body" class="cake__body-base"></use>
-          <g class="cake__frosting-group" clip-path="url(#frosting-clip)">
-            <g class="cake__frosting cake__frosting--start">
-              <use xlink:href="#frosting"></use>
-            </g>
-            <g class="cake__frosting cake__frosting--duplicate">
-              <rect class="cake__frosting-patch" width="20" height="5" x="110" y="159.25"></rect>
-              <use xlink:href="#frosting"></use>
-            </g>
-          </g>
-          <g class="cake__sprinkles-group" clip-path="url(#sprinkle-clip)">
-            <g class="cake__sprinkles cake__sprinkles--initial">
-              <use xlink:href="#sprinkles"></use>
-            </g>
-            <g class="cake__sprinkles cake__sprinkles--duplicate">
-              <use xlink:href="#sprinkles"></use>
-            </g>
-          </g>
-        </g>
-        <g clip-path="url(#face-clip)">
-          <g class="cake__face" transform="translate(-48.82 -138.799)">
-            <g class="cake__eyes">
-              <g class="cake__eye" transform="matrix(1.38031 0 0 1.38031 34.723 -33.58)">
-                <circle class="cake__eye-body" cx="29.86" cy="149.022" r="2.457"></circle>
-                <circle class="cake__eye-pupil" cx="28.773" cy="148.162" r=".756"></circle>
-              </g>
-              <g class="cake__eye" transform="matrix(1.38031 0 0 1.38031 57.092 -33.58)">
-                <circle class="cake__eye-body" r="2.457" cy="149.022" cx="29.86"></circle>
-                <circle class="cake__eye-pupil" r=".756" cy="148.162" cx="28.773"></circle>
-              </g>
-            </g>
-            <g class="cake__mouth">
-              <path class="cake__mouth-opening" d="M83.607 174.436a3.652 3.652 0 003.518 2.674 3.652 3.652 0 003.515-2.674z" stroke-width="1.1801650499999998" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path class="cake__tongue" d="M88.836 175.492a3.113 2.329 0 00-2.869 1.425 3.652 3.652 0 001.158.192 3.652 3.652 0 002.899-1.44 3.113 2.329 0 00-1.188-.177z"></path>
-            </g>
-          </g>
-          <g class="cake__face--straining" transform="translate(-48.82 -138.799)">
-            <path d="M100.673 173.886l-5.248-2.073 5.713-1.466M73.574 173.886l5.248-2.073-5.713-1.466" fill="none" stroke="#000" stroke-width="1.01590816" stroke-linecap="round" stroke-linejoin="round"></path>
-            <path d="M85.016 175.773h4.216" fill="none" stroke="#000" stroke-width=".86683468" stroke-linecap="round"></path>
-          </g>
-        </g>
-        <g class="cake__candles">
-          <g class="cake__candle">
-            <use xlink:href="#candle"></use>
-          </g>
-          <g class="cake__candle">
-            <use xlink:href="#candle" transform="translate(25 0)"></use>
-          </g>
-          <g class="cake__candle">
-            <use xlink:href="#candle" transform="translate(12 0.5)"></use>
-          </g>
-        </g>
-      </svg>
-    <div class="click-label">🎀 Cuba Tekan Button Ni! 🎀</div>
+  <!-- Main Birthday Card -->
+  <div class="flowers-wrapper">
+    <!-- Floating Hearts Background -->
+    <div class="hearts" aria-hidden="true"></div>
+    
+    <!-- Main Card Container -->
+    <div class="card">
+      <!-- Birthday Flags -->
+      <div class="flag__birthday">
+        <img src="./Images/1.png" alt="" width="200" class="flag__left">
+        <img src="./Images/1.png" alt="" width="200" class="flag__right">
+      </div>
+
+      <!-- Main Content -->
+      <div class="content">
+        <div class="left">
+          <div class="title">
+            <h1 class="happy">
+              <span style="--t: 0.4s;">S</span>
+              <span style="--t: 0.5s;">E</span>
+              <span style="--t: 0.6s;">L</span>
+              <span style="--t: 0.7s;">A</span>
+              <span style="--t: 0.8s;">M</span>
+              <span style="--t: 0.9s;">A</span>
+              <span style="--t: 1.0s;">T</span>
+            </h1>
+            <h1 class="birthday">
+              <span style="--t: 0.9s;">U</span>
+              <span style="--t: 1.0s;">L</span>
+              <span style="--t: 1.1s;">A</span>
+              <span style="--t: 1.2s;">N</span>
+              <span style="--t: 1.3s;">G</span>
+            </h1>
+            <h1 class="birthday tahun">
+              <span style="--t: 1.5s;">T</span>
+              <span style="--t: 1.6s;">A</span>
+              <span style="--t: 1.7s;">H</span>
+              <span style="--t: 1.8s;">U</span>
+              <span style="--t: 1.9s;">N</span>
+            </h1>
+            <div class="hat">
+              <img src="./Images/hat.png" alt="" width="100">
+            </div>
+          </div>
+
+          <div class="date__of__birth">
+            <span></span>
+          </div>
+
+          <div class="btn">
+            <button id="btn__letter">
+              <i class="fa-regular fa-envelope"></i>
+              Tekan Lah Sini ada suprise 
+              <i class="fa-solid fa-heart"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="box__account">
+            <div class="image">
+              <img src="./Images/Aiqha.jpg" alt="">
+            </div>
+            <div class="name">
+              <i class="fa-solid fa-heart"></i>
+              <span>ZULAIKHA</span>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+            <div class="balloon_one">
+              <img width="80px" src="./Images/balloon1.png" alt="">
+            </div>
+            <div class="balloon_two">
+              <img width="80px" src="./Images/balloon2.png" alt="">
+            </div>
+          </div>
+
+          <div class="cricle">
+            <div class="text__cricle">
+              <span style="--i: 1;">S</span>
+              <span style="--i: 2;">E</span>
+              <span style="--i: 3;">L</span>
+              <span style="--i: 4;">A</span>
+              <span style="--i: 5;">M</span>
+              <span style="--i: 6;">A</span>
+              <span style="--i: 7;">T</span>
+              <span style="--i: 8;">-</span>
+              <span style="--i: 9;">U</span>
+              <span style="--i: 10;">L</span>
+              <span style="--i: 11;">A</span>
+              <span style="--i: 12;">N</span>
+              <span style="--i: 13;">G</span>
+              <span style="--i: 14;">-</span>
+              <span style="--i: 15;">T</span>
+              <span style="--i: 16;">A</span>
+              <span style="--i: 17;">H</span>
+              <span style="--i: 18;">U</span>
+              <span style="--i: 19;">N</span>
+              <span style="--i: 20;">-</span>
+            </div>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="decorate_star star1" style="--t: 8s;"></div>
+      <div class="decorate_star star2" style="--t: 8.2s;"></div>
+      <div class="decorate_star star3" style="--t: 8.4s;"></div>
+      <div class="decorate_star star4" style="--t: 8.6s;"></div>
+      <div class="decorate_star star5" style="--t: 8.8s;"></div>
+
+      <div class="decorate_flower--one" style="--t: 8s;">
+        <img width="25" src="./Images/decorate_flower.png" alt="">
+      </div>
+      <div class="decorate_flower--two" style="--t: 8.3s;">
+        <img width="25" src="./Images/decorate_flower.png" alt="">
+      </div>
+      <div class="decorate_flower--three" style="--t: 8.6s;">
+        <img width="25" src="./Images/decorate_flower.png" alt="">
+      </div>
+
+      <div class="decorate_bottom">
+        <img src="./Images/decorate.png" alt="" width="80">
+      </div>
+    </div>
+
+    <!-- Sweet Message Letter Box -->
+    <div class="box__letter">
+      <div class="letter__border">
+        <div class="letter">
+          <div class="title__letter"></div>
+          <div class="content__letter">
+            <div class="left">
+              <img id="heart__letter" src="https://media0.giphy.com/media/c76IJLufpNwSULPk77/giphy.gif" alt="">
+              <img class="heart heart_1" style="--t: 0.2s" width="20" src="./Images/heart.png" alt="">
+              <img class="heart heart_2" style="--t: 0.4s" width="20" src="./Images/heart.png" alt="">
+              <img class="heart heart_3" style="--t: 0.6s" width="20" src="./Images/heart.png" alt="">
+              <img class="heart heart_4" style="--t: 0.8s" width="20" src="./Images/heart.png" alt="">
+            </div>
+            <div class="right">
+              <div class="text__letter">
+                <p id="message"></p>
+              </div>
+              <img id="mewmew" width="50" src="./Images/mewmew.gif" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="close">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="back-button close-button">
+          <i class="fa-solid fa-xmark"></i>
+          <span>Close</span>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Confetti particles container -->
-<div class="confetti-container"></div>
+  <!-- Background Music -->
+  <audio id="backgroundMusic" loop>
+    <source src="HappyBirthdayAiqhaSong.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js' defer></script>
-<script src='https://unpkg.com/splitting/dist/splitting.min.js' defer></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin3.min.js' defer></script>
-<script src="./scriptb.js" defer></script>
+  <script>
+    const message = `ASSALAMUALAIKUM WAHAI SAUDARI ZULAIKHA,
 
+Alhamdulillah, syukur atas nikmat kurniaan Tuhan. Di kala hidup mendatangkan seribu satu keperitan dan dugaan, saudari tetap teguh berdiri, dan akhirnya tiba di hari yang dinanti penuh makna ini.
+
+Saya, Muhammad Saiful Iqbal, ingin mengucapkan Selamat Ulang Tahun yang ke-20. Wahai saudari, menjelang dua dekad kehidupan saudari, saya sentiasa mengiringkan doa agar saudari sentiasa berada dalam keadaan sihat hendaknya, dikurniakan jiwa yang tenang, dan setiap satu urusan saudari dipermudahkan dengan penuh keberkatan.
+
+Lebih bermakna lagi, ulang tahun saudari pada tahun ini jatuh sehari sebelum menjelangnya bulan yang mulia, Ramadan. Maka saya mengambil peluang ini untuk mengucapkan selamat beramal soleh sepanjang bulan Ramadan buat saudari sekeluarga.
+
+Semoga kehidupan saudari di kehadapannya akan terus dikelilingi oleh insan-insan yang baik budi dan budiman, yang sentiasa mencoretkan senyuman kebahagiaan di wajah saudari.
+
+Saya juga mengharapkan agar saudari akan terus berkarya dengan cara saudari yang tersendiri. Janganlah sesekali berhenti menyebarkan kebaikan kepada orang ramai, kerana secara tidak langsung saya yakin saudari telah mengubah ramai kehidupan masyarakat di luar sana.
+
+Sebelum saya mengakhiri ucapan ini, izinkan saya menyampaikan serangkap pantun untuk saudari:
+
+Bunga mawar mekar berseri,
+Wangi semerbak di pagi hari;
+Genaplah 20 usia saudari,
+Moga seronoknya kekal abadi.
+
+Selamat Ulang Tahun yang ke-20,
+Zulaikha binti Mohammed Omar.
+
+Ikhlas dari hati,
+IqbalHappy`;
+
+    // Configuration
+    let datetxt = "18 Feb 2026";
+    let titleLetter = "ke Hadapan Saudari Zulaikha";
+    let enteredFromCake = false;
+    try {
+      const cakeParams = new URLSearchParams(window.location.search);
+      if (cakeParams.get('fromcake') === '1') {
+        enteredFromCake = true;
+        cakeParams.delete('fromcake');
+        const rest = cakeParams.toString();
+        history.replaceState(
+          null,
+          '',
+          window.location.pathname + window.location.hash + (rest ? '?' + rest : '')
+        );
+      }
+    } catch (_) {}
+    if (!enteredFromCake) {
+      try {
+        if (sessionStorage.getItem('zulaikhaFromCake') === '1') {
+          sessionStorage.removeItem('zulaikhaFromCake');
+          enteredFromCake = true;
+        }
+      } catch (_) {}
+    }
+    let charArrDate = datetxt.split('');
+    let charArrDateLetter = message.split('');
+    let charArrTitle = titleLetter.split('');
+    let currentIndex = 0;
+    let currentIndexLetter = 0;
+    let currentIndexTitle = 0;
+    let date__of__birth = document.querySelector(".date__of__birth span");
+    let text__letter = document.querySelector("#message");
+
+    // Overlay and start functionality
+    const overlay = document.getElementById("overlay");
+    const startBtn = document.getElementById("start-btn");
+    const wrapper = document.querySelector(".flowers-wrapper");
+    const backgroundMusic = document.getElementById("backgroundMusic");
+
+    function runBirthdayReveal() {
+      wrapper.style.display = "flex";
+      wrapper.style.opacity = "0";
+      setTimeout(() => {
+        wrapper.style.opacity = "1";
+      }, 100);
+
+      backgroundMusic.volume = 0.3;
+      backgroundMusic.play().catch(() => {});
+
+      setTimeout(function () {
+        timeDatetxt = setInterval(function () {
+          if (currentIndex < charArrDate.length) {
+            date__of__birth.textContent += charArrDate[currentIndex];
+            currentIndex++;
+          } else {
+            let i = document.createElement("i");
+            i.className = "fa-solid fa-star";
+            document.querySelector(".date__of__birth").prepend(i);
+            document.querySelector(".date__of__birth").appendChild(i.cloneNode(true));
+            clearInterval(timeDatetxt);
+          }
+        }, 100);
+      }, 1500);
+    }
+
+    startBtn.addEventListener("click", () => {
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 500);
+      runBirthdayReveal();
+    });
+
+    if (enteredFromCake) {
+      overlay.style.display = "none";
+      overlay.style.opacity = "0";
+      runBirthdayReveal();
+    }
+
+    // Letter functionality
+    var intervalContent;
+    var intervalTitle;
+    $("#btn__letter").on("click", function(){
+      $(".box__letter").fadeIn();
+      setTimeout(function(){
+        $(".letter__border").slideDown();
+      }, 500);
+      setTimeout(function(){
+        intervalTitle = setInterval(function(){
+          if(currentIndexTitle < charArrTitle.length){
+            document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
+            let i = document.createElement("i");
+            i.className = "fa-solid fa-heart";
+            document.querySelector(".title__letter").appendChild(i);
+            currentIndexTitle++;
+          } else {
+            clearInterval(intervalTitle);
+          }
+        }, 100);
+      }, 1000);
+      setTimeout(function(){
+        document.querySelector("#heart__letter").classList.add("animationOp");
+        const loveImg = document.querySelector(".love__img");
+        if(loveImg) loveImg.classList.add("animationOp");
+        document.querySelector("#mewmew").classList.add("animationOp");
+      }, 1500);
+      setTimeout(function(){
+        document.querySelectorAll(".heart").forEach((item)=>{
+          item.classList.add("animation");
+        })
+      }, 2000);
+      setTimeout(function(){
+        intervalContent = setInterval(function(){
+          if(currentIndexLetter < charArrDateLetter.length){
+            text__letter.textContent += charArrDateLetter[currentIndexLetter];
+            currentIndexLetter++;
+          } else {
+            clearInterval(intervalContent);
+          }
+        }, 30);
+      }, 3000);
+    });
+
+    // Close button function
+    function closeLetter() {
+      if(intervalContent) clearInterval(intervalContent);
+      if(intervalTitle) clearInterval(intervalTitle);
+      
+      const titleLetter = document.querySelector(".title__letter");
+      if(titleLetter) titleLetter.textContent = "";
+      if(text__letter) text__letter.textContent = "";
+      
+      currentIndexLetter = 0;
+      currentIndexTitle = 0;
+      
+      const heartLetter = document.querySelector("#heart__letter");
+      if(heartLetter) heartLetter.classList.remove("animationOp");
+      
+      const loveImg = document.querySelector(".love__img");
+      if(loveImg) loveImg.classList.remove("animationOp");
+      
+      const mewmew = document.querySelector("#mewmew");
+      if(mewmew) mewmew.classList.remove("animationOp");
+      
+      document.querySelectorAll(".heart").forEach((item)=>{
+        item.classList.remove("animation");
+      });
+      
+      $(".letter__border").slideUp(300, function() {
+        $(".box__letter").fadeOut(300);
+      });
+    }
+
+    $(document).on("click", ".close", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeLetter();
+      return false;
+    });
+
+    $(document).on("click", ".back-button", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeLetter();
+      return false;
+    });
+
+    $(document).on("click", ".close-button", function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      closeLetter();
+      return false;
+    });
+
+    document.addEventListener('click', function(e) {
+      const target = e.target;
+      const closeBtn = target.closest('.close');
+      const backBtn = target.closest('.back-button');
+      const closeBtn2 = target.closest('.close-button');
+      
+      if(closeBtn || backBtn || closeBtn2) {
+        e.preventDefault();
+        e.stopPropagation();
+        closeLetter();
+        return false;
+      }
+    }, true);
+
+    // Enhanced floating hearts
+    function spawnHeart() {
+      const container = document.querySelector('.hearts');
+      if (!container) return;
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      const size = Math.random() * 15 + 10;
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size}px`;
+      heart.style.left = `${Math.random() * 100}%`;
+      heart.style.bottom = '-20px';
+      heart.style.animationDuration = `${Math.random() * 4 + 6}s`;
+      heart.style.opacity = `${0.4 + Math.random() * 0.6}`;
+      container.appendChild(heart);
+      setTimeout(() => heart.remove(), 12000);
+    }
+
+    // Start floating hearts after overlay is hidden
+    setTimeout(() => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!prefersReduced) setInterval(spawnHeart, 800);
+    }, 2000);
+  </script>
 </body>
 </html>
