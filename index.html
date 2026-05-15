@@ -272,15 +272,20 @@ IqbalHappy`;
     const wrapper = document.querySelector(".flowers-wrapper");
     const backgroundMusic = document.getElementById("backgroundMusic");
 
+    function tryPlayBirthdayMusic() {
+      if (!backgroundMusic) return;
+      backgroundMusic.volume = 0.3;
+      if (backgroundMusic.paused) {
+        backgroundMusic.play().catch(() => {});
+      }
+    }
+
     function runBirthdayReveal() {
       wrapper.style.display = "flex";
       wrapper.style.opacity = "0";
       setTimeout(() => {
         wrapper.style.opacity = "1";
       }, 100);
-
-      backgroundMusic.volume = 0.3;
-      backgroundMusic.play().catch(() => {});
 
       setTimeout(function () {
         timeDatetxt = setInterval(function () {
@@ -299,6 +304,7 @@ IqbalHappy`;
     }
 
     startBtn.addEventListener("click", () => {
+      tryPlayBirthdayMusic();
       overlay.style.opacity = "0";
       setTimeout(() => {
         overlay.style.display = "none";
@@ -316,6 +322,7 @@ IqbalHappy`;
     var intervalContent;
     var intervalTitle;
     $("#btn__letter").on("click", function(){
+      tryPlayBirthdayMusic();
       $(".box__letter").fadeIn();
       setTimeout(function(){
         $(".letter__border").slideDown();
